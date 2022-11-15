@@ -1,0 +1,13 @@
+{
+    "url": "/profile/update",
+    "method": "get",
+    "code": 200,
+    "delay": 2000,
+    "responseBody": {
+        "user_id": "DIA0003",
+        "name": "Anton",
+        "email": "anton@mail",
+        "birthdate": "24-2-2022",
+        "address": "litan"
+    }
+}

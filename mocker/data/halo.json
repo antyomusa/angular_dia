@@ -1,0 +1,10 @@
+{
+    "url": "/halo",
+    "method": "get",
+    "code": 409,
+    "delay": 3000,
+
+    "responseBody": {
+        "hello": "helo"
+    }
+}

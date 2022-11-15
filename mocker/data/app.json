@@ -1,0 +1,10 @@
+{
+    "url": "/app",
+    "method": "get",
+    "code": 200,
+
+    "responseBody": {
+        "text" : "Example Response"
+    }
+
+}

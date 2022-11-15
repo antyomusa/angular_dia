@@ -1,0 +1,12 @@
+{
+    "url": "/login",
+    "method": "post",
+    "code": 200,
+    "delay": 10,
+    "responseBody": {
+        "user_id": "DIA0003",
+        "username": "user.dia3",
+        "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IkQwMDFBRzAwNjQiLCJhcHAiOiJzb21wb19pbnN1cmFuY2UiLCJ2ZXJzaW9uIjoiMS4wLjAuMSIsInByZWZpeCI6InNpIiwidXNlciI6InVzZXIucmVndWxhciIsInJvbGUiOiJSZWd1bGFyIn0.7AhWLtcAcYED5dF-Mziro9p9YytUqlOqcEmih5nA-ew",
+        "message": "Username atau Password salah"
+    }
+}

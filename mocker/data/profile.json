@@ -1,0 +1,13 @@
+{
+    "url": "/profile",
+    "method": "get",
+    "code": 200,
+    "delay": 2000,
+    "responseBody": {
+        "user_id": "DIA0003",
+        "username": "user.dia3",
+        "name": "Anton",
+        "age": 17,
+        "job": "Angular Developer"
+    }
+}
