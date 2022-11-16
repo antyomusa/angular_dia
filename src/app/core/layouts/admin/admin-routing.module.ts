@@ -20,7 +20,7 @@ const routes: Routes = [
         loadChildren: () => import('../../../module/admin/job-detail/job-detail.module').then((x) => x.JobDetailModule)
       },
       {
-        path: 'apply',
+        path: 'apply/:id',
         canActivate: [AuthGuard],
         loadChildren: () => import('../../../module/admin/apply/apply.module').then((x) => x.ApplyModule)
       },

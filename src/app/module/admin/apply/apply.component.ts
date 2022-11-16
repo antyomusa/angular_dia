@@ -36,7 +36,7 @@ export class ApplyComponent implements OnInit {
 
   openUploadCv() {
     const modal = this.modalService.open(
-      ModalUploadCvComponent, { size: 'lg' });
+      ModalUploadCvComponent, { size: 'md' });
     modal.componentInstance.file = this.applyModel.applyModelForm.controls['jobseekerResume'];
     modal.componentInstance.onUpload = () => { this.onUpload() }
   }
