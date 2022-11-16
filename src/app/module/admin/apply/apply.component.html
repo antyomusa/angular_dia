@@ -6,8 +6,10 @@
                 <img class="image-doc" src="../../../../assets/pdf.png" alt="image">
             </div>
             <div class="col-md-6 col-centered">
-                <p class="text-center hw1">Your CV and Profile will be submitted for the Business Development position
-                    at PT Idea Kolaborasi Utama</p>
+                <p class="text-center hw1">
+                    Your CV and Profile will be submitted for the
+                    {{ applyModel.applyModelForm.controls['jobName'].value }}
+                    at {{ applyModel.applyModelForm.controls['recruiterCompany'].value }}</p>
             </div>
             <div class="input-group-append">
                 <button class="btn bg-primary rounded-pill px-5 py-2 font-style-btn btn-user btn-block" type="button"

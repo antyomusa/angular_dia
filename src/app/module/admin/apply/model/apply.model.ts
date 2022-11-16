@@ -4,10 +4,9 @@ export class ApplyModel {
     applyModelForm = new FormGroup(
         {
             jobseekerId: new FormControl(0, [Validators.required]),
-            jobseekerResume: new FormControl('', [Validators.required])
+            jobseekerResume: new FormControl('', [Validators.required]),
+            jobName: new FormControl(''),
+            recruiterCompany: new FormControl('')
         }
     );
-
-    recentJobs: any = [];
-    singleJobs: any;
 }

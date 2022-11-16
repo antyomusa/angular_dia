@@ -14,6 +14,8 @@ import { ApplyModel } from './model/apply.model';
 export class ApplyComponent implements OnInit {
 
   applyModel = new ApplyModel();
+  jobName: any;
+  recruiterCompany: any;
 
   constructor(
     private readonly modalService: NgbModal,
@@ -30,6 +32,16 @@ export class ApplyComponent implements OnInit {
           jobId: id,
           jobStatus: "visible"
         }
+      console.log(data.params)
+      this.jobService.getDetailJob(params).subscribe(
+        (response: any) => {
+          this.applyModel.applyModelForm.patchValue(response.data);
+          // console.log(this.applyModel.applyModelForm.value)
+          console.log(response.data)
+
+        },
+        (error) => {
+        })
     })
 
   }
