@@ -12,9 +12,9 @@
                                 [ngStyle]="{'color': (job.jobPosition === 'Contractual') ? '#006EFF' : (job.jobPosition === 'Full time') ? 'green' : ''}">{{job.jobPosition}}</span>
                         </h5>
                         <a href="">
-                            <p>{{ job.recruiterCompany }}</p>
+                            {{ job.recruiterCompany }}
                         </a>
-                        <p class="text-secondary">{{ job.jobAddress }}</p>
+                        <p class="text-secondary pt-2">{{ job.jobAddress }}</p>
                         <p>Rp{{ job.jobSalary }}</p>
                         <span class="text-secondary">1 day ago</span>
                     </div>
@@ -71,7 +71,7 @@
         <h5 class="fw-bold">
             Address
         </h5>
-        <p [innerHTML]="job.recruiterStaff">{{ job.recruiterStaff}}</p>
+        <p [innerHTML]="job.recruiterAddress">{{ job.recruiterAddress}}</p>
 
         <div class="icon">
 

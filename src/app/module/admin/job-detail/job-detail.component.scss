@@ -60,6 +60,20 @@ $abu4 : #F0F0F0;
     }
 
     .btn {
+
+        img {
+            filter: invert(25%) sepia(92%) saturate(2460%) hue-rotate(207deg) brightness(101%) contrast(105%);
+        }
+    }
+
+    .btn:hover {
+
+        img {
+            filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(263deg) brightness(103%) contrast(101%);
+        }
+    }
+
+    .btn {
         margin-right: 15px;
         margin-top: 15px;
 
@@ -71,6 +85,18 @@ $abu4 : #F0F0F0;
 
         .filter-blue {
             filter: invert(25%) sepia(92%) saturate(2460%) hue-rotate(207deg) brightness(101%) contrast(105%);
+        }
+    }
+
+    @media (max-width: 767.98px) {
+        .btn {
+            padding-top: 10px;
+            font-size: 10px;
+            width: 33%;
+
+            img {
+                width: 15px;
+            }
         }
     }
 }

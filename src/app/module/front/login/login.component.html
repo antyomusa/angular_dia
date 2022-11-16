@@ -4,7 +4,7 @@
             <div class="contentBox col-md-6">
                 <img src="../../../../assets/fix.png" class="card-img-top" alt="image">
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 mt-4">
                 <div>
                     <h4 class="h4 text-gray-900 mb-4 hw text-weight">Login</h4>
                 </div>
@@ -51,14 +51,19 @@
                             placeholder="Enter your password" minlength="8" required="">
                     </div>
                     <div class="form-group">
-                        <div class="custom-control custom-checkbox small">
-                            <input type="checkbox" class="custom-control-input" id="customCheck">
-                            <label class="custom-control-label" for="customCheck">
-                                Remember Me</label>
-                            <a class="text-right" href="">Forgot Password?</a>
+                        <div class="custom-control custom-checkbox small d-flex">
+                            <div class="form-check me-auto">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Remember Me
+                                </label>
+                            </div>
+                            <a class="" href="">Forgot Password?</a>
                         </div>
                     </div>
-                    <button class="font-style-btn btn btn-primary btn-user btn-block">Login</button>
+                    <div class="d-grid gap-2">
+                        <button class="font-style-btn btn btn-primary btn-user">Login</button>
+                    </div>
                 </form>
                 <div class="text-center text3"> Don’t have any account?
                     <a class="small" href=""> Sign Up For Free!</a>

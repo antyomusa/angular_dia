@@ -17,7 +17,7 @@
                     </div>
                     <div class="col-md-2">
                         <div class="input-group-append">
-                            <button class="btn btn-search bg-primary rounded-pill px-5 py-2 container-fluid"
+                            <button class="btn btn-search bg-primary rounded-pill px-5 py-2 container-fluid mt-2"
                                 type="button" id="button-addon2">Search</button>
                         </div>
                     </div>
@@ -95,10 +95,10 @@
                                                 [ngStyle]="{'color': (job.jobPosition === 'Contractual') ? '#006EFF' : (job.jobPosition === 'Full time') ? 'green' : ''}">{{job.jobPosition}}</span>
                                         </a>
                                     </h5>
-                                    <a href="">
-                                        <p>{{ job.recruiterCompany }}</p>
+                                    <a href="" class="recruiter-company py-5">
+                                        {{ job.recruiterCompany }}
                                     </a>
-                                    <p class="text-secondary">{{ job.jobAddress }}</p>
+                                    <p class="text-secondary pt-2">{{ job.jobAddress }}</p>
                                     <p>Rp{{ job.jobSalary }}</p>
                                     <span class="text-secondary">{{ job.createdAt }}</span>
                                 </div>

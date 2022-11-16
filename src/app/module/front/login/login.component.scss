@@ -7,44 +7,23 @@ $biru_card : #ECF3FF;
   font-family: 'Montserrat', sans-serif;
 }
 
-.navbar-custom {
-  background-color: white;
-
-  .navbar-brand {
-    img {
-      margin-bottom: 8px;
-    }
-  }
-
-  .nav-item {
-    font-size: 15px;
-    font-weight: 700;
-
-    .nav-link {
-      color: black;
-    }
-
-    .active {
-      color: $biru;
-    }
-
-    .btn {
-      font-size: 15px;
-      font-weight: 700;
-
-    }
-  }
-}
 
 
 .contentBox {
   background-size: cover;
-  height: 540px;
+
   border-radius: 32px;
   position: relative;
 
-  .card-img-top {
+  img {
     height: 540px;
+  }
+
+  @media (max-width: 767.98px) {
+    img {
+      height: 400px;
+      padding: 20px 0 20px 0;
+    }
   }
 
   @media (min-width: 500px) {
@@ -188,9 +167,6 @@ $biru_card : #ECF3FF;
 }
 
 .btn-block {
-  display: block;
-  width: 500px;
-  height: 50px;
   border-radius: 32px;
   margin-right: 140px;
   margin-left: 15px;
@@ -213,8 +189,6 @@ $biru_card : #ECF3FF;
 .form-control {
   display: block;
   background-color: #EFF0F2;
-  height: 50px;
-  width: 500px;
   margin-right: 140px;
 }
 
