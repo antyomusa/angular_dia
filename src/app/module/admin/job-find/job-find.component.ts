@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { JobService } from 'src/app/services/job/job.service';
 import { LoginService } from 'src/app/services/login/login.service';
@@ -14,11 +14,31 @@ export class JobFindComponent implements OnInit {
 
   jobFindModel = new JobFindModel();
 
+  config: any;
+
   value = '';
 
   constructor(
     public readonly jobService: JobService,
-  ) { }
+    public readonly router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {
+    this.config = {
+      currentPage: 1,
+      itemsPerPage: 1,
+      totalItems: 0,
+    }
+    activatedRoute.queryParams.subscribe(
+      params => this.config.currentPage = params['page'] ? params['page'] : 1
+    )
+    for (let i = 1; i <= 100; i++) {
+      this.jobFindModel.recentJobs.push(`items ${i}`);
+    }
+  }
+
+  pageChange(newPage: number) {
+    this.router.navigate(['/admin/job-find'], { queryParams: { page: newPage } });
+  }
 
   ngOnInit(): void {
     this.jobService.getRecentJob().subscribe(

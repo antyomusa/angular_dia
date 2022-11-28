@@ -1,0 +1,270 @@
+<section class="profile">
+    <div class="contain">
+        <div class="row">
+
+            <div class="col-md-9">
+                <section class="personal-information section-white">
+                    <div class="d-flex">
+                        <h4 class="me-auto">Personal Information</h4>
+                        <button class="btn btn-sm btn-primary rounded-pill px-4"
+                            (click)="openEditPersonalInformation()">Edit</button>
+                    </div>
+                    <div class="row mt-4">
+                        <div class=" col-sm-1 col-5 text-center">
+                            <img src="{{profileModel.userProfilesModelForm.controls['jobseekerImage'].value || '../../../../assets/imgnotavailable.jpg'}}"
+                                alt="">
+                        </div>
+                        <div class="col-sm-5 col-6 info-name">
+                            <h4>{{ profileModel.userProfilesModelForm.controls['jobseekerName'].value ||
+                                "not filled yet" }}</h4>
+                            <p>{{ profileModel.userProfilesModelForm.controls['jobseekerProfession'].value ||
+                                "not filled yet" }}</p>
+                            <p>{{ profileModel.userProfilesModelForm.controls['jobseekerAddress'].value
+                                ||
+                                "not filled yet" }}</p>
+                            <div class="d-flex">
+                                <mat-icon>lens</mat-icon>
+                                <p>I’m Actively Applying</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 col-6 info-img">
+                            <p>{{ profileModel.userProfilesModelForm.controls['jobseekerPhone'].value
+                                ||
+                                "not filled yet" }}</p>
+                            <p>{{ profileModel.userProfilesModelForm.controls['jobseekerEmail'].value
+                                ||
+                                "not filled yet" }}</p>
+                            <a href="{{ profileModel.userProfilesModelForm.controls['jobseekerMedsos'].value}}"
+                                target="_blank"><img src="../../../../assets/linkedin.svg" alt=""></a>
+                            <a href="recruiterIg" target="_blank"><img src="../../../../assets/instagram.svg"
+                                    alt=""></a>
+                            <a href="recruiterWebsite" target="_blank"><img src="../../../../assets/web.svg" alt=""></a>
+                        </div>
+                        <div class="col-sm-3 col-6 info-img">
+                            <ul>
+                                <li>
+
+                                    <a href="{{profileModel.userProfilesModelForm.controls['jobseekerResume'].value}}"
+                                        target="_blank"><img src=" ../../../../assets/small-pdf.svg" alt="">CV
+                                        uploaded</a>
+                                </li>
+                                <li>
+                                    <a href="https://{{ profileModel.userProfilesModelForm.controls['jobseekerPortfolio'].value}}"
+                                        target="_blank"><img src="../../../../assets/chain.svg" alt="">Portfolio</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="top-skills section-white">
+                    <div class="d-flex">
+                        <h4 class="me-auto">Top Skills</h4>
+                        <button class="btn btn-sm btn-primary rounded-pill px-4">Edit</button>
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="col-md-8 btn-exp">
+                            <button type="button" class="btn btn-outline-primary rounded-pill me-2"
+                                *ngFor="let item of profileModel.skills">
+                                {{ item.skillName ||
+                                "not filled yet"}}</button>
+                            <!-- <button type="button" class="btn btn-outline-primary rounded-pill">JIRA</button>
+                            <button type="button" class="btn btn-outline-primary rounded-pill">Agile
+                                Methodology</button>
+                            <button type="button" class="btn btn-outline-primary rounded-pill">Adobe
+                                Illustrator</button>
+                            <button type="button" class="btn btn-outline-primary rounded-pill">PProject
+                                Management</button>
+                            <button type="button" class="btn btn-outline-primary rounded-pill">PProject
+                                Management</button>
+                            <button type="button" class="btn btn-outline-primary rounded-pill">PProject
+                                Management</button> -->
+                        </div>
+                    </div>
+                </section>
+                <section class="working-experiences section-white">
+                    <div class="d-flex">
+                        <h4 class="me-auto">Working Experiences</h4>
+                        <button class="btn btn-sm btn-primary rounded-pill px-4 me-2" (click)="openAddExperience()"><img
+                                src="../../../../assets/plus.svg" alt=""> Add Experience</button>
+                        <button class="btn btn-sm btn-primary rounded-pill px-4">Edit</button>
+                    </div>
+                    <div class="row user-job-detail mt-4">
+                        <div class="col-md-1">
+                            <img src="/../../../../assets/ideaco.png" alt="">
+                        </div>
+                        <div class="col-md-11">
+                            <h6>{{ profileModel.userProfilesModelForm.controls['jobseekerProfession'].value
+                                ||
+                                "not filled yet" }}</h6>
+                            <p>{{ profileModel.userProfilesModelForm.controls['jobseekerCompany'].value
+                                ||
+                                "not filled yet" }}</p>
+                            <p>{{ profileModel.userProfilesModelForm.controls['workStartYear'].value
+                                ||
+                                "not filled yet" }} - {{
+                                profileModel.userProfilesModelForm.controls['workEndYear'].value
+                                ||
+                                "not filled yet" }}</p>
+                            <p>Jakarta, Indonesia</p>
+
+                            <div class="mt-3">
+                                <ol>
+                                    <li>
+                                        Assign as a product owner in digital applications development
+                                    </li>
+                                    <li>
+                                        Responsible in business planning and operational digital platform IDEACO
+                                    </li>
+                                    <li>
+                                        Perform team planning, recruitment and placement of talents in partner
+                                        companies
+                                    </li>
+                                    <li>
+                                        Collaborate with the team, management and partners of companies or
+                                        institutions
+                                    </li>
+                                    <li>Ensure the development process and deliverable work fit to the company
+                                        requirement
+                                    </li>
+                                    <li>
+                                        Develop learning process for internal and external knowledge sharing
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <hr>
+                    <div class="row user-job-detail mt-4">
+                        <div class="col-md-1">
+                            <img src="../../../../assets/ideaco.png" alt="">
+                        </div>
+                        <div class="col-md-11">
+                            <h6>Project Manager</h6>
+                            <p>tes</p>
+                            <p>tes - tes</p>
+                            <p>Jakarta, Indonesia</p>
+
+                            <div class="mt-3">
+                                <ol>
+                                    <li>
+                                        Assign as a product owner in digital applications development
+                                    </li>
+                                    <li>
+                                        Responsible in business planning and operational digital platform IDEACO
+                                    </li>
+                                    <li>
+                                        Perform team planning, recruitment and placement of talents in partner
+                                        companies
+                                    </li>
+                                    <li>
+                                        Collaborate with the team, management and partners of companies or
+                                        institutions
+                                    </li>
+                                    <li>Ensure the development process and deliverable work fit to the company
+                                        requirement
+                                    </li>
+                                    <li>
+                                        Develop learning process for internal and external knowledge sharing
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div> -->
+                </section>
+                <section class="education section-white">
+                    <div class="d-flex">
+                        <h4 class="me-auto">Education</h4>
+                        <button class="btn btn-sm btn-primary rounded-pill px-4 me-2" (click)="openAddEducation()"><img
+                                src="../../../../assets/plus.svg" alt=""> Add Education</button>
+                        <button class="btn btn-sm btn-primary rounded-pill px-4">Edit</button>
+                    </div>
+                    <div class="row user-job-detail mt-4">
+                        <div class="col-md-1">
+                            <img src="../../../../assets/university.svg" alt="">
+                        </div>
+                        <div class="col-md-11">
+                            <h6>tes</h6>
+                            <p>PT Idea Kolaborasi Utama</p>
+                            <p>2021 - Present</p>
+                            <p>Jakarta, Indonesia</p>
+                        </div>
+                    </div>
+                </section>
+                <section class="salary section-white">
+                    <div class="d-flex">
+                        <h4 class="me-auto">Salary</h4>
+                        <button class="btn btn-sm btn-primary rounded-pill px-4">Edit</button>
+                    </div>
+                    <div class="row user-job-detail mt-4">
+                        <div class="col-md-2">
+                            <h6>Current Salary</h6>
+                            <p>IDR 9,000,000 (nett)</p>
+                        </div>
+                        <div class="col-md-2">
+                            <h6>Expected Salary</h6>
+                            <p>IDR 11,000,000 (nett)</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-md-3">
+                <section class="section-white profile-completion">
+                    <h5 class="mb-3">Profile Completion</h5>
+                    <mat-progress-bar mode="determinate" value="28"></mat-progress-bar>
+                    <p class="text-danger mt-2">28% Complete</p>
+                    <p class="text-secondary">Complete at least 80% to easily match your profile to the most
+                        suitable job for you!</p>
+                    <div class="list-completion mt-4">
+                        <div class="row d-flex active">
+                            <div class="col-sm-1 col-1 me-2">
+                                <mat-icon class="check-green">check_circle</mat-icon>
+                            </div>
+                            <div class="col-sm-9 col-9">Personal Information</div>
+                            <div class="col-sm-1 col-1">
+                                <mat-icon>chevron_right</mat-icon>
+                            </div>
+                        </div>
+                        <div class="row d-flex">
+                            <div class="col-sm-1 col-1 me-2">
+                                <mat-icon class="check-green" hidden>check_circle</mat-icon>
+                            </div>
+                            <div class="col-sm-9 col-9">Top Skill</div>
+                            <div class="col-sm-1 col-1">
+                                <mat-icon>chevron_right</mat-icon>
+                            </div>
+                        </div>
+                        <div class="row d-flex">
+                            <div class="col-sm-1 col-1 me-2">
+                                <mat-icon class="check-green" hidden>check_circle</mat-icon>
+                            </div>
+                            <div class="col-sm-9 col-9">Working Experience</div>
+                            <div class="col-sm-1 col-1">
+                                <mat-icon>chevron_right</mat-icon>
+                            </div>
+                        </div>
+                        <div class="row d-flex">
+                            <div class="col-sm-1 col-1 me-2">
+                                <mat-icon class="check-green text-secondary" hidden>check_circle</mat-icon>
+                            </div>
+                            <div class="col-sm-9 col-9">Education</div>
+                            <div class="col-sm-1 col-1">
+                                <mat-icon>chevron_right</mat-icon>
+                            </div>
+                        </div>
+                        <div class="row d-flex">
+                            <div class="col-sm-1 col-1 me-2">
+                                <mat-icon class="check-green text-secondary" hidden>check_circle</mat-icon>
+                            </div>
+                            <div class="col-sm-9 col-9">Salary Expectation</div>
+                            <div class="col-sm-1 col-1">
+                                <mat-icon>chevron_right</mat-icon>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+    </div>
+</section>

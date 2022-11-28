@@ -1,34 +1,24 @@
-<!-- <div class="modal-header border-0r">
-    <h5 class="modal-title" id="exampleModalLabel">Upload Cv</h5>
-    <button (click)="close()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-</div>
-<div class="modal-body">
-    <img src="../../../../../assets/uploadcv.png" alt="">
-    <h5>Drop your cv here</h5>
-    <p class="text-center p">or</p>
-    <input (change)="onChange($event)" class="form-control" type="file" accept="application/pdf">
-    <button (click)="upload()" class="btn bg-primary rounded-pill font-style-btn btn-1 btn-success mt-3">
-        Upload CV
-    </button>
-</div> -->
 <div class="modal-dialog">
     <div class="modal-content border-0">
         <div class="modal-header border-0">
             <h5 class="modal-title" id="exampleModalLabel">Upload CV</h5>
-            <button (click)="close()" type="button" class="btn-close" data-bs-dismiss="modal"
+            <button (click)="activeModal.dismiss('Cross click')" type="button" class="btn-close" data-bs-dismiss="modal"
                 aria-label="Close"></button>
         </div>
         <div class="modal-body text-center">
-            <img src="../../../../../assets/uploadcv.png" alt="">
-            <h5>Drop your cv here</h5>
-            <p class="text-center p">or</p>
-            <input (change)="onChange($event)" class="form-control" type="file" accept="application/pdf">
-            <button (click)="upload()" class="btn bg-primary rounded-pill font-style-btn btn-1 btn-success mt-3">
-                Upload CV
-            </button>
+            <img [src]="url" alt="" loading="lazy">
+            <h5 class="mb-2">{{fileName == '' ?'Drop Your Cv Here':fileName }}</h5>
+            <p class="text-center text-secondary" [style]="available">or</p>
+            <input (change)="onChange($event)" [class]="btnBg" type="button" [value]="status" accept="application/pdf">
+            <input (change)="onChange($event)" class="hidden-input-file" type="file" accept="application/pdf">
+            <p class="text-danger mt-2">{{file_error}}</p>
+            <p class="text-secondary file-req">Acceptable file types are DOC, DOCX and PDF that is up to 10MB.</p>
+
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-primary" (click)="saves()">Save changes</button>
+            <button (click)="upload()" class="btn bg-primary rounded-pill px-5">
+                Submit
+            </button>
         </div>
     </div>
 </div>

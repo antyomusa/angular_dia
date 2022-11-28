@@ -25,9 +25,9 @@ const routes: Routes = [
         loadChildren: () => import('../../../module/admin/apply/apply.module').then((x) => x.ApplyModule)
       },
       {
-        path: 'application-success',
+        path: 'profile/:id',
         canActivate: [AuthGuard],
-        loadChildren: () => import('../../../module/admin/application-success/application-success.module').then((x) => x.ApplicationSuccessModule)
+        loadChildren: () => import('../../../module/admin/profile/profile.module').then((x) => x.ProfileModule)
       }
     ]
   }

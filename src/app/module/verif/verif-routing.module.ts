@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ApplicationSuccessComponent } from './application-success.component';
+import { VerifComponent } from './verif.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: ApplicationSuccessComponent,
+    component: VerifComponent
   }
 ];
 
@@ -13,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ApplicationSuccessRoutingModule { }
+export class VerifRoutingModule { }

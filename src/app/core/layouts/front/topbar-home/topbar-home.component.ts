@@ -15,6 +15,10 @@ export class TopbarHomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  submitRegister() {
+    this.router.navigate(["sign-up"]);
+  }
+
   submitLogin() {
     this.router.navigate(["login"]);
   }

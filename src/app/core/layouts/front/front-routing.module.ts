@@ -15,6 +15,18 @@ const routes: Routes = [
       {
         path: 'login',
         loadChildren: () => import('../../../module/front/login/login.module').then((x) => x.LoginModule)
+      },
+      {
+        path: 'job-list',
+        loadChildren: () => import('../../../module/front/job-list/job-list.module').then((x) => x.JobListModule)
+      },
+      {
+        path: 'sign-up',
+        loadChildren: () => import('../../../module/front/sign-up/sign-up.module').then((x) => x.SignUpModule)
+      },
+      {
+        path: 'forgot-password',
+        loadChildren: () => import('../../../module/front/forgot-password/forgot-password.module').then((x) => x.ForgotPasswordModule)
       }
     ]
   }

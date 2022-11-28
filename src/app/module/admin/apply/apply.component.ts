@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgxFileDropEntry } from 'ngx-file-drop';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { JobService } from 'src/app/services/job/job.service';
 import { UploadFileService } from 'src/app/services/upload-cv/upload-file.service';
 import { ModalUploadCvComponent } from 'src/app/shared/component/modal/modal-upload-cv/modal-upload-cv.component';
@@ -16,13 +18,16 @@ export class ApplyComponent implements OnInit {
   applyModel = new ApplyModel();
   jobName: any;
   recruiterCompany: any;
+  isUploaded: unknown;
+  userData: any = {};
 
   constructor(
     private readonly modalService: NgbModal,
     public readonly jobService: JobService,
     public readonly uploadCvService: UploadFileService,
     public readonly router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    public readonly authService: AuthService,
   ) { }
 
   ngOnInit(): void {
@@ -44,6 +49,10 @@ export class ApplyComponent implements OnInit {
         })
     })
 
+    if (this.authService.isLogin()) {
+      this.userData = this.authService.loadUserData()
+    }
+
   }
 
   openUploadCv() {
@@ -53,14 +62,17 @@ export class ApplyComponent implements OnInit {
     modal.componentInstance.onUpload = () => { this.onUpload() }
   }
   onUpload() {
-    this.applyModel.applyModelForm.controls['jobseekerId'].setValue(213);
+    this.applyModel.applyModelForm.controls['jobseekerId'].setValue(this.userData.jobseekerId);
     console.log(this.applyModel.applyModelForm.value)
     this.uploadCvService.upload(this.applyModel.applyModelForm.value).subscribe(
       (event: any) => {
         if (typeof (event) === 'object') {
+          this.isUploaded = true;
         }
       }
     );
   }
+
+
 
 }

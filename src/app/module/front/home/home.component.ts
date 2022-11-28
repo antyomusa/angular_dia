@@ -34,4 +34,8 @@ export class HomeComponent implements OnInit {
     this.router.navigate(["login"]);
   };
 
+  keJobList() {
+    this.router.navigate(["job-list"]);
+  };
+
 }
