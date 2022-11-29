@@ -18,6 +18,18 @@ export class JobFindComponent implements OnInit {
 
   value = '';
 
+  public maxSize: number = 7;
+  public directionLinks: boolean = true;
+  public autoHide: boolean = false;
+  public responsive: boolean = true;
+  public labels: any = {
+    previousLabel: 'Previous Page',
+    nextLabel: 'Next Page',
+    screenReaderPaginationLabel: 'Pagination',
+    screenReaderPageLabel: 'page',
+    screenReaderCurrentLabel: `You're on page`
+  };
+
   constructor(
     public readonly jobService: JobService,
     public readonly router: Router,

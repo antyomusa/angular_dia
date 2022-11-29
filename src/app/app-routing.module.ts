@@ -29,6 +29,14 @@ const routes: Routes = [
   {
     path: 'verif',
     loadChildren: () => import('../app/module/verif/verif.module').then((x) => x.VerifModule)
+  },
+  {
+    path: 'forgot-password',
+    loadChildren: () => import('../app/module/forgot-password/forgot-password.module').then((x) => x.ForgotPasswordModule)
+  },
+  {
+    path: 'change-password',
+    loadChildren: () => import('../app/module/change-password/change-password.module').then((x) => x.ChangePasswordModule)
   }
   // {
   //   path: 'detail-job',

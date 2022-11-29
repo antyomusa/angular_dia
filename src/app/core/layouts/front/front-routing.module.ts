@@ -19,10 +19,6 @@ const routes: Routes = [
       {
         path: 'sign-up',
         loadChildren: () => import('../../../module/front/sign-up/sign-up.module').then((x) => x.SignUpModule)
-      },
-      {
-        path: 'forgot-password',
-        loadChildren: () => import('../../../module/front/forgot-password/forgot-password.module').then((x) => x.ForgotPasswordModule)
       }
     ]
   }
