@@ -235,8 +235,8 @@
                     </div>
                     <div class="row mt-4">
                         <div class=" col-sm-1 col-5 text-center">
-                            <img src="{{profile.jobseekerImage || '../../../../../../assets/imgnotavailable.jpg'}}"
-                                alt="">
+                            <img src="{{profile.jobseekerImage === 'http://54.251.83.205:9091/resources/cv/null' ?
+                                profile.jobseekerImage : '../../../../../../assets/imgnotavailable.jpg'}}" alt="">
                         </div>
                         <div class="col-sm-5 col-6 info-name">
                             <h4>{{ profile.jobseekerName || "not filled yet" }}</h4>
@@ -262,7 +262,7 @@
 
                                     <a [href]="profile.jobseekerResume" target="_blank"><img
                                             src=" ../../../../assets/small-pdf.svg" alt="">
-                                        {{profile.jobseekerResume===null?'not filled yet':'cv uploaded'}}</a>
+                                        {{!profile.jobseekerResume ? 'not filled yet' : 'cv uploaded'}}</a>
                                 </li>
                                 <li>
                                     <a href="https://{{ profile.jobseekerPortfolio }}" target="_blank"><img
@@ -281,8 +281,8 @@
                     <div class="row mt-4">
                         <div class="col-md-8 btn-exp">
                             <button type="button" class="btn btn-outline-primary rounded-pill me-2"
-                                *ngFor="let item of profileModel.userProfile || 'not filled'">
-                                {{ item.skillName || "not filled yet"}}</button>
+                                *ngFor="let item of profileModel.userProfile">
+                                {{ item.skillName ? item.skillName : 'not filled yet'}}</button>
                         </div>
                     </div>
                 </section>
