@@ -113,11 +113,7 @@
                 </div>
             </div>
         </div>
-        <pagination-controls [maxSize]="maxSize" [directionLinks]="directionLinks" [autoHide]="autoHide"
-            [responsive]="responsive" [previousLabel]="labels.previousLabel" [nextLabel]="labels.nextLabel"
-            [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
-            [screenReaderPageLabel]="labels.screenReaderPageLabel"
-            [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel" (pageChange)="pageChange($event)"
-            class="my-pagination text-center"></pagination-controls>
+        <pagination-controls (pageChange)="pageChange($event)" class="my-pagination text-center"></pagination-controls>
+        <!-- <ngb-pagination (pageChange)="pageChange($event)" aria-label="Default pagination"></ngb-pagination> -->
     </div>
 </section>
