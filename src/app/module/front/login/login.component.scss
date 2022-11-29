@@ -7,16 +7,14 @@ $biru_card : #ECF3FF;
   font-family: 'Montserrat', sans-serif;
 }
 
-
-
 .contentBox {
   background-size: cover;
-
   border-radius: 32px;
   position: relative;
+  margin-top: 20px;
 
   img {
-    height: 540px;
+    height: 500px;
   }
 
   @media (max-width: 767.98px) {
@@ -139,6 +137,9 @@ $biru_card : #ECF3FF;
   background-color: #ECF3FF;
   position: relative;
   text-align: center;
+  border-radius: 36px;
+  width: 500px;
+  margin-left: 12px;
 }
 
 .custom-control-label {
@@ -167,7 +168,7 @@ $biru_card : #ECF3FF;
 }
 
 .btn-block {
-  border-radius: 32px;
+  border-radius: 36px;
   margin-right: 140px;
   margin-left: 15px;
 }
@@ -195,5 +196,5 @@ $biru_card : #ECF3FF;
 .form-control-user {
   font-size: 0.8rem;
   border-radius: 8px;
-  padding: 1.5rem 1rem;
+  height: 40px;
 }

@@ -23,6 +23,10 @@ const routes: Routes = [
     loadChildren: () => import('../app/core/layouts/front/front.module').then((x) => x.FrontModule)
   },
   {
+    path: 'jobs',
+    loadChildren: () => import('../app/core/layouts/jobs/jobs.module').then((x) => x.JobsModule)
+  },
+  {
     path: 'verif',
     loadChildren: () => import('../app/module/verif/verif.module').then((x) => x.VerifModule)
   }
@@ -33,7 +37,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
