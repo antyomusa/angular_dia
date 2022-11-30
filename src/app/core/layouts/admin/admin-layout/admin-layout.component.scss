@@ -11,6 +11,12 @@ $abu4 : #F0F0F0;
     font-family: 'Montserrat', sans-serif;
 }
 
+.loader-container {
+    position: fixed;
+    width: 100%;
+    z-index: 10000;
+}
+
 mat-icon {
     border: hidden !important;
     color: black;

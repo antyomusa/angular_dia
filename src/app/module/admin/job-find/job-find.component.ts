@@ -18,6 +18,8 @@ export class JobFindComponent implements OnInit {
 
   value = '';
 
+  loader = true;
+
   constructor(
     public readonly jobService: JobService,
     public readonly router: Router,
@@ -41,6 +43,7 @@ export class JobFindComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this.jobService.getRecentJob().subscribe(
       (response) => {
         this.jobFindModel.recentJobs = response.data;

@@ -1,3 +1,6 @@
+<div *ngIf="loaderService.isLoading | async" class="loader-container">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
 <header id="header">
     <nav class="navbar navbar-custom fixed-top navbar-expand-lg py-3">
         <div class="container-fluid mx-2">

@@ -36,12 +36,9 @@ export class ProfileComponent implements OnInit {
       console.log(data.params)
       this.loginService.getUserProfile(params).subscribe(
         (response: any) => {
-          // this.profileModel.userProfilesModelForm.patchValue(response.data);
           this.profileModel.userProfile = response.data;
           this.profile = this.profileModel.userProfile;
-          this.profileModel.userProfile = response.data.skills;
-          console.log(response.data.skills);
-          console.log(this.profile.jobseekerResume);
+          this.profileModel.skills = response.data.skills;
         },
         (error) => {
         })

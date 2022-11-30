@@ -4,8 +4,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { InterceptorService } from './services/interceptor/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,12 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     NgbModule,
   ],
   providers: [
-    { provide: LocationStrategy, useClass: HashLocationStrategy }
+    {
+      provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true
+    },
+    {
+      provide: LocationStrategy, useClass: HashLocationStrategy
+    }
   ],
   bootstrap: [AppComponent]
 })

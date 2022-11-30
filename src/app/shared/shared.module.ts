@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [],
@@ -27,7 +28,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     MatIconModule,
     MatInputModule,
     MatProgressBarModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatProgressSpinnerModule
   ]
 })
 export class SharedModule { }

@@ -29,7 +29,7 @@ export class ProfileModel {
 
     userProfile: any = [];
 
-    // skills: any = [];
+    skills: any = [];
 
     addSkill(skill: any) {
     }
