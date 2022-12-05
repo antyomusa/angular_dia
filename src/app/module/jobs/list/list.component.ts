@@ -12,33 +12,21 @@ export class ListComponent implements OnInit {
 
   listModel = new ListModel();
 
-  config: any;
+  p: any;
 
   value = '';
 
   constructor(
     public readonly jobService: JobService,
     public readonly router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private activeroute: ActivatedRoute
   ) {
-    this.config = {
-      currentPage: 1,
-      itemsPerPage: 1,
-      totalItems: 0,
-    }
-    activatedRoute.queryParams.subscribe(
-      params => this.config.currentPage = params['page'] ? params['page'] : 1
-    )
-    for (let i = 1; i <= 100; i++) {
-      this.listModel.recentJobs.push(`items ${i}`);
-    }
-  }
-
-  pageChange(newPage: number) {
-    this.router.navigate(['/jobs/list'], { queryParams: { page: newPage } });
   }
 
   ngOnInit(): void {
+
+
     this.jobService.getRecentJob().subscribe(
       (response) => {
         this.listModel.recentJobs = response.data;
@@ -48,4 +36,8 @@ export class ListComponent implements OnInit {
       }
     );
   }
+
+  keJobSearch() {
+    this.router.navigate(["jobs/test"], { queryParams: { data: this.value } });
+  };
 }

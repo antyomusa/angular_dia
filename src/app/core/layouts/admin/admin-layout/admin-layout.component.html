@@ -41,7 +41,7 @@
                             <img src="assets/dropdown.svg" alt="" height="25px">
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li> <a class="dropdown-item" (click)="logout()"><img
+                            <li> <a class="dropdown-item" routerLink="settings/{{userData.jobseekerId}}"><img
                                         src="../../../../../assets/setting.svg" alt=""> Settings</a></li>
                             <li> <a class="dropdown-item text-danger" (click)="logout()"><img
                                         src="../../../../../assets/logout.svg" alt=""> Logout</a></li>

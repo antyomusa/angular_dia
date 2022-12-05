@@ -25,22 +25,22 @@ export class JobFindComponent implements OnInit {
     public readonly router: Router,
     private activatedRoute: ActivatedRoute
   ) {
-    this.config = {
-      currentPage: 1,
-      itemsPerPage: 1,
-      totalItems: 0,
-    }
-    activatedRoute.queryParams.subscribe(
-      params => this.config.currentPage = params['page'] ? params['page'] : 1
-    )
-    for (let i = 1; i <= 100; i++) {
-      this.jobFindModel.recentJobs.push(`items ${i}`);
-    }
+    // this.config = {
+    //   currentPage: 1,
+    //   itemsPerPage: 1,
+    //   totalItems: 0,
+    // }
+    // activatedRoute.queryParams.subscribe(
+    //   params => this.config.currentPage = params['page'] ? params['page'] : 1
+    // )
+    // for (let i = 1; i <= 100; i++) {
+    //   this.jobFindModel.recentJobs.push(`items ${i}`);
+    // }
   }
 
-  pageChange(newPage: number) {
-    this.router.navigate(['/admin/job-find'], { queryParams: { page: newPage } });
-  }
+  // pageChange(newPage: number) {
+  //   this.router.navigate(['/admin/job-find'], { queryParams: { page: newPage } });
+  // }
 
   ngOnInit(): void {
 
@@ -54,5 +54,7 @@ export class JobFindComponent implements OnInit {
     );
   }
 
-
+  keJobSearch() {
+    this.router.navigate(["main/job-search"], { queryParams: { data: this.value } });
+  };
 }

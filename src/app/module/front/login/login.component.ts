@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
     this.loginService.postLogin(this.loginModel.formGroupLogin.value).subscribe(
       (response) => {
         this.authService.saveUserData(response.data.registerJobseekerDTO)
-        this.router.navigate(['admin/job-find'])
+        this.router.navigate(['main/job-find'])
       },
       (error) => {
         this.loginModel.responseLogin = error.error;

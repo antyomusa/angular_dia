@@ -15,7 +15,7 @@ import { ModalPersonalInformationComponent } from './modal/modal-personal-inform
     ModalUploadCvComponent,
     ModalAddExperienceComponent,
     ModalAddEducationComponent,
-    ModalPersonalInformationComponent
+
   ],
   imports: [
     CommonModule,

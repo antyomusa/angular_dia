@@ -13,7 +13,9 @@ export class JobDetailComponent implements OnInit {
 
   jobDetailModel = new JobDetailModel();
 
-  job: any;
+  job: any = {
+    jobName: '',
+  };
   id: any;
 
   constructor(
@@ -43,6 +45,6 @@ export class JobDetailComponent implements OnInit {
 
   submitApply() {
     this.job.jobId;
-    this.router.navigate([`admin/apply/${this.job.jobId}`]);
+    this.router.navigate([`main/apply/${this.job.jobId}`]);
   }
 }

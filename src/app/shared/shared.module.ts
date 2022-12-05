@@ -11,6 +11,8 @@ import { NgxFileDropModule } from 'ngx-file-drop';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSelectModule } from '@angular/material/select';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [],
@@ -27,9 +29,11 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+    MatSelectModule,
     MatProgressBarModule,
     NgxPaginationModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    Ng2SearchPipeModule
   ]
 })
 export class SharedModule { }

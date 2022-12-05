@@ -28,7 +28,17 @@ const routes: Routes = [
         path: 'profile/:id',
         canActivate: [AuthGuard],
         loadChildren: () => import('../../../module/admin/profile/profile.module').then((x) => x.ProfileModule)
-      }
+      },
+      {
+        path: 'job-search',
+        canActivate: [AuthGuard],
+        loadChildren: () => import('../../../module/admin/job-search/job-search.module').then((x) => x.JobSearchModule)
+      },
+      {
+        path: 'settings/:id',
+        canActivate: [AuthGuard],
+        loadChildren: () => import('../../../module/admin/settings/settings.module').then((x) => x.SettingsModule)
+      },
     ]
   }
 

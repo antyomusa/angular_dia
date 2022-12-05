@@ -8,7 +8,7 @@
         <div class="modal-body text-center">
             <div class="row mb-3">
                 <div class=" col-sm-12 col-5 px-0 profile-img">
-                    <img src="../../../../assets/imgnotavailable.jpg">
+                    <img src="../../../../../../../assets/imgnotavailable.jpg">
                     <button class="btn btn-outline-primary rounded-pill px-3 py-1 ms-3 me-1 fw-bold">
                         Change Photo
                     </button>
@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Name</label>
+                        <label for="exampleInputEmail1" class="form-label" style="visibility: hidden;">Name</label>
                         <input type="email" class="form-control" placeholder="Last name">
                     </div>
                 </div>
@@ -40,7 +40,8 @@
                         <fieldset disabled>
 
                             <label for="disabledTextInput" class="form-label">E-mail Address</label>
-                            <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                            <input type="text" id="disabledTextInput" class="form-control"
+                                placeholder="{{ profile.jobseekerEmail }}">
                             <label for="disabledTextInput" class="form-label mb-0 mt-1"><a href="">Change
                                     Email</a></label>
                         </fieldset>

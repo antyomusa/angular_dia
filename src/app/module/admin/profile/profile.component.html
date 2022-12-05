@@ -1,7 +1,6 @@
 <section class="profile">
     <div class="contain">
         <div class="row">
-
             <div class="col-md-9">
                 <section class="personal-information section-white">
                     <div class="d-flex">
@@ -16,7 +15,7 @@
                         </div>
                         <div class="col-sm-5 col-6 info-name">
                             <h4>{{ profile.jobseekerName || "not filled yet" }}</h4>
-                            <p> {{profile.jobseekerProfession===null? 'not filled yet' : 'cv uploaded'}}</p>
+                            <p> {{profile.jobseekerProfession || "not filled yet"}}</p>
                             <p>{{ profile.jobseekerAddress || "not filled yet" }}</p>
                             <div class="d-flex">
                                 <mat-icon>lens</mat-icon>

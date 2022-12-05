@@ -29,14 +29,4 @@ export class LoginService {
       .set('jobseekerId', body.jobseekerId);
     return this.http.get('http://54.251.83.205:9091/api/v1/jobseeker/user', { params: params });
   }
-
-  // public getUserProfile(jobseekerId: any): Observable<unknown> {
-  //   const url = `http://54.251.83.205:9091/api/v1/jobseeker/user/${jobseekerId}`;
-  //   return this.http.get(url);
-  // }
-
-  // public getUserProfile(): Observable<any> {
-  //   const url = 'http://54.251.83.205:9091/api/v1/jobseeker/user/156';
-  //   return this.http.get(url);
-  // }
 }
