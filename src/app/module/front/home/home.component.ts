@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { JobService } from 'src/app/services/job/job.service';
 import { HomeModel } from './model/home.model';
 
@@ -10,16 +11,23 @@ import { HomeModel } from './model/home.model';
 })
 export class HomeComponent implements OnInit {
 
-  value = '';
+  fill = '';
+  userData: any = {};
+  onSearch: boolean = false;
 
   homeModel = new HomeModel();
 
   constructor(
     private readonly router: Router,
     public readonly jobService: JobService,
+    public readonly authService: AuthService,
   ) { }
 
   ngOnInit(): void {
+    if (this.authService.isLogin()) {
+      this.userData = this.authService.loadUserData()
+    }
+
     this.jobService.getRecentJob().subscribe(
       (response) => {
         this.homeModel.recentJobs = response.data;
@@ -32,6 +40,15 @@ export class HomeComponent implements OnInit {
 
   submitLogin() {
     this.router.navigate(["login"]);
+  };
+
+  keJobList() {
+    this.router.navigate(["jobs/list"], { queryParams: { data: this.fill } });
+  };
+
+  keJobSearch() {
+    this.router.navigate(["main/job-search"], { queryParams: { data: this.fill } });
+    this.onSearch = true;
   };
 
 }

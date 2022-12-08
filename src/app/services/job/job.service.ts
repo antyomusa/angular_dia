@@ -31,4 +31,11 @@ export class JobService {
     return this.http.post('http://54.251.83.205:9091/api/v1/jobseeker/user/update/resume', params);
   }
 
+  public searchJobs(body: any): Observable<any> {
+    const params = new HttpParams()
+      .set('keyword', body.keyword)
+
+    return this.http.get('http://54.251.83.205:9091/api/v1/jobseeker/search', { params: params });
+  }
+
 }

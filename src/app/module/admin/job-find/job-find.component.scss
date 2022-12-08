@@ -28,128 +28,7 @@ mat-icon {
 
 
 
-header {
-    .navbar-custom {
-        background-color: white;
-        z-index: 1000;
 
-        .navbar-brand {
-
-            img {
-                margin-bottom: 8px;
-
-            }
-        }
-
-
-        .nav-link {
-            color: black;
-        }
-
-        .active {
-            color: $biru;
-        }
-
-        .btn-primary:hover {
-            background: white;
-            color: $biru;
-            border: 1px solid $biru;
-        }
-
-        .username {
-            a {
-                text-decoration: none;
-                color: black;
-            }
-        }
-
-        @media (min-width: 992px) {
-
-            .navbar-nav {
-                margin-left: 5%;
-            }
-
-            .nav-item {
-                font-size: 15px;
-                font-weight: 700;
-
-
-                .btn {
-                    font-size: 15px;
-                    font-weight: 700;
-                    margin-left: 5px;
-                }
-            }
-
-            .username {
-                margin-top: 10px;
-            }
-        }
-
-        @media (max-width: 991.98px) {
-            .navbar-nav {
-                margin-top: 10px;
-            }
-
-            .nav-item {
-
-                .btn {
-                    margin-bottom: 10px;
-                    margin-left: -10px;
-                }
-            }
-        }
-    }
-}
-
-mat-sidenav-container {
-    height: 100%;
-}
-
-
-
-mat-sidenav {
-    background: white;
-    width: 15%;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    padding-left: 2%;
-    padding-top: 80px;
-    z-index: 100;
-}
-
-.shortcut-links {
-    a {
-        display: flex;
-        align-items: center;
-        width: fit-content;
-        flex-wrap: wrap;
-        text-decoration: none;
-        color: black;
-
-        img {
-            margin-right: 20px;
-            max-width: 20px;
-        }
-
-        p {
-            margin-top: 15px;
-        }
-    }
-}
-
-mat-sidenav {
-    padding-top: 106px;
-    height: 100%;
-    background-color: white;
-}
-
-mat-sidenav-content {
-    padding-top: 106px;
-    height: 100%;
-    background-color: $abu;
-}
 
 .find-jobs {
 
@@ -319,9 +198,47 @@ mat-sidenav-content {
 
         }
 
+
+
     }
 
+    .btn-circle {
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        font-size: 120px;
+        border-radius: 15px;
+    }
 
+    .custom-pagination {
+        justify-content: flex-end;
+    }
 
+    .example-label {
+        display: table-cell;
+        font-size: 14px;
+        margin-left: 8px;
+        min-width: 120px;
+    }
 
+    .example-button-row {
+        display: table-cell;
+        max-width: 600px;
+    }
+
+    .example-button-row .mat-mdc-button-base {
+        margin: 8px 8px 8px 0;
+    }
+
+    .example-flex-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .example-button-container {
+        display: flex;
+        justify-content: center;
+        width: 120px;
+    }
 }

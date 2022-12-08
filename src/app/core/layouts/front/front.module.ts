@@ -16,6 +16,9 @@ import { TopbarHomeComponent } from './topbar-home/topbar-home.component';
     CommonModule,
     FrontRoutingModule,
     SharedModule,
+  ],
+  exports: [
+    FrontLayoutComponent,
   ]
 })
 export class FrontModule { }

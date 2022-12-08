@@ -13,7 +13,7 @@ export class JobDetailComponent implements OnInit {
 
   jobDetailModel = new JobDetailModel();
 
-  job: any;
+  job: any = {};
   id: any;
 
   constructor(
@@ -24,6 +24,7 @@ export class JobDetailComponent implements OnInit {
 
 
   ngOnInit(): void {
+
 
     this.activatedRoute.paramMap.subscribe((data: any) => {
       let id = data.params.id,
@@ -36,13 +37,12 @@ export class JobDetailComponent implements OnInit {
         (response: any) => {
           this.jobDetailModel.singleJobs = response.data;
           this.job = this.jobDetailModel.singleJobs;
-          console.log(this.jobDetailModel.singleJobs)
         })
     })
   }
 
   submitApply() {
     this.job.jobId;
-    this.router.navigate([`admin/apply/${this.job.jobId}`]);
+    this.router.navigate([`main/apply/${this.job.jobId}`]);
   }
 }

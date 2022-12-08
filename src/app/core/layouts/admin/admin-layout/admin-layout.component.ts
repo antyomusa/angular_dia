@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { arrow } from '@popperjs/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
-import { LoginService } from 'src/app/services/login/login.service';
+import { LoaderService } from 'src/app/services/loader/loader.service';
 
 @Component({
   selector: 'app-admin-layout',
@@ -13,27 +13,26 @@ export class AdminLayoutComponent implements OnInit {
   jobs = new Array<any>();
   login = new Array<any>();
   userData: any = {};
+  status: boolean = false;
 
   constructor(
-    private readonly router: Router,
     public readonly authService: AuthService,
-    private readonly loginService: LoginService
-  ) { }
+    public readonly loaderService: LoaderService
+  ) {
+    loaderService.isLoading.subscribe(
+      (status) => {
+        this.status = status;
+      }
+    )
+  }
 
   ngOnInit(): void {
-    // this.authService.getRecentJob().subscribe(
-    //   (response) => {
-    //     this.jobs = response;
-    //   },
-    //   (error) => {
-
-    //   }
-    // );
-
     if (this.authService.isLogin()) {
       this.userData = this.authService.loadUserData()
     }
   }
+
+
 
   logout() {
     this.authService.logOut()

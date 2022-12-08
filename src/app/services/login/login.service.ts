@@ -10,11 +10,11 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
-  private urlUsers = 'https://reqres.in/api/users?page=1';
+  // private urlUsers = 'https://reqres.in/api/users?page=1';
 
-  getUsers(): Observable<any> {
-    return this.http.get<any>(this.urlUsers);
-  }
+  // getUsers(): Observable<any> {
+  //   return this.http.get<any>(this.urlUsers);
+  // }
 
   public postLogin(body: any): Observable<any> {
     const params = new HttpParams()
@@ -24,4 +24,9 @@ export class LoginService {
     return this.http.post('http://54.251.83.205:9091/api/v1/jobseeker/login', params);
   }
 
+  public getUserProfile(body: any): Observable<unknown> {
+    const params = new HttpParams()
+      .set('jobseekerId', body.jobseekerId);
+    return this.http.get('http://54.251.83.205:9091/api/v1/jobseeker/user', { params: params });
+  }
 }

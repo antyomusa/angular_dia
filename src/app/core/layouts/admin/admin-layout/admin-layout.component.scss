@@ -11,6 +11,12 @@ $abu4 : #F0F0F0;
     font-family: 'Montserrat', sans-serif;
 }
 
+.loader-container {
+    position: fixed;
+    width: 100%;
+    z-index: 10000;
+}
+
 mat-icon {
     border: hidden !important;
     color: black;
@@ -30,7 +36,7 @@ mat-icon {
 header {
     .navbar-custom {
         background-color: white;
-        z-index: 1000;
+        z-index: 10;
 
         .navbar-brand {
 
@@ -62,7 +68,23 @@ header {
             }
         }
 
+
+
         @media (min-width: 992px) {
+
+            .navbar-collapse {
+                margin-right: 40px;
+
+            }
+
+            .dropdown-menu {
+                box-shadow: 0 0 5px #ccc;
+                width: 2px !important;
+
+                img {
+                    margin-top: -2px;
+                }
+            }
 
             .navbar-nav {
                 margin-left: 5%;
@@ -148,6 +170,14 @@ mat-sidenav {
             margin-top: 15px;
         }
     }
+
+    .active {
+        color: blue;
+
+        img {
+            filter: invert(25%) sepia(92%) saturate(2460%) hue-rotate(207deg) brightness(101%) contrast(105%);
+        }
+    }
 }
 
 // mat-sidenav {
@@ -157,9 +187,15 @@ mat-sidenav {
 // }
 
 mat-sidenav-content {
-    padding-top: 106px;
+    padding-top: 5%;
     height: 100%;
-    background-color: white;
+    background-color: $abu4;
+}
+
+@media (max-width: 767.98px) {
+    mat-sidenav-content {
+        padding-top: 15%;
+    }
 }
 
 .find-jobs {
