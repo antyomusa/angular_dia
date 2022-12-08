@@ -9,8 +9,9 @@
                             <span matPrefix>
                                 <mat-icon class="me-2 text-secondary">search</mat-icon> &nbsp;
                             </span>
-                            <input matInput type="text" [(ngModel)]="value">
-                            <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                            <input matInput type="text" [(ngModel)]="fill" (ngModelChange)="search"
+                                (keyup.enter)="keJobSearch()" (change)="page = 1">
+                            <button *ngIf="fill" matSuffix mat-icon-button aria-label="Clear" (click)="fill=''">
                                 <mat-icon style="border: none;">close</mat-icon>
                             </button>
                         </mat-form-field>
@@ -18,11 +19,12 @@
                     <div class="col-md-2">
                         <div class="input-group-append">
                             <button class="btn btn-search bg-primary rounded-pill px-5 py-2 container-fluid mt-2"
-                                type="button" id="button-addon2" (click)="keJobSearch()">Search</button>
+                                type="button" id="button-addon2" (click)="keJobSearch()"
+                                (change)="page = 1">Search</button>
                         </div>
                     </div>
                 </div>
-                <div class="row content">
+                <div class="row content" hidden>
                     <div class="col-md-12">
                         <div class="button-wrapper btn-container-left">
 
@@ -76,8 +78,18 @@
                 </div>
             </div>
         </div>
-        <!-- <mat-spinner *ngIf="loader"></mat-spinner> -->
-        <div class="section-white" *ngFor="let job of jobSearchModel.recentJobs">
+        <div class="search-result pb-4 pt-2">
+            <h1>Result for “{{ search }}”</h1>
+            <pagination-template #p="paginationApi" (pageChange)="page = $event">
+                <h5>{{getStartIndex(p.getCurrent(), p.getLastPage())}}-{{getLastIndex(p.getCurrent(),
+                    p.getLastPage())}} of {{this.jobSearchModel.recentJobs?.length}} job matches</h5>
+            </pagination-template>
+        </div>
+        <div *ngIf="jobSearchModel.recentJobs==0" class="my-5 ">
+            <h2 class="fw-bold">No Job Found</h2>
+        </div>
+        <div class="section-white"
+            *ngFor="let job of jobSearchModel.recentJobs | paginate: { itemsPerPage: 2, currentPage: page }">
             <div class="card border-0">
                 <div class="section-title">
                     <div class="row">
@@ -91,7 +103,7 @@
                                             job.jobName
                                             }}
                                             <span class="badge ms-1"
-                                                [ngStyle]="{'color': (job.jobPosition === 'Contractual') ? '#006EFF' : (job.jobPosition === 'Full time') ? 'green' : ''}">{{job.jobPosition}}</span>
+                                                [ngStyle]="{'color': (job.jobPosition === 'Contractual') ? '#006EFF' : (job.jobPosition === 'Internship') ? '#ff9900' : (job.jobPosition === 'Part Time') ? '#ff0000' : (job.jobPosition === 'Full time') ? 'green' : ''}">{{job.jobPosition}}</span>
                                         </a>
                                     </h5>
                                     <a href="" class="recruiter-company">
@@ -104,7 +116,7 @@
                             </div>
                         </div>
                         <div class="col-md-2 col-button">
-                            <button type="button" class="btn btn-outline-primary rounded-pill">
+                            <button type="button" class="btn btn-outline-primary rounded-pill" hidden>
                                 <img src="assets/save.svg" alt="" class="filter-blue"> Save this
                                 job</button>
                         </div>
@@ -112,7 +124,51 @@
                 </div>
             </div>
         </div>
-        <!-- <pagination-controls (pageChange)="pageChange($event)" class="my-pagination text-center"></pagination-controls> -->
-        <!-- <ngb-pagination (pageChange)="pageChange($event)" aria-label="Default pagination"></ngb-pagination> -->
+
+        <pagination-template #p="paginationApi" (pageChange)="page = $event">
+            <div class="row no-gutters">
+                <div class="col-md-7 ms-auto">
+                    <div class="custom-pagination d-flex">
+                        <div class="page-button me-auto">
+                            <button type="button" class="btn btn-primary rounded-pill me-1" (click)="p.previous()"
+                                *ngIf="p.isFirstPage()===false">Previous Page
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary rounded-pill me-1"
+                                (click)="p.previous()" *ngIf="p.isFirstPage()===true"
+                                [disabled]="p.isFirstPage()===true">Previous Page
+                            </button>
+                            <button type="button" class="btn btn-primary rounded-pill me-1" (click)="p.next()"
+                                *ngIf="p.isLastPage()===false">Next Page
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary rounded-pill me-1" (click)="p.next()"
+                                *ngIf="p.isLastPage()===true" [disabled]="p.isLastPage()===true">Next Page
+                            </button>
+                        </div>
+                        <div class="page-number">
+                            <span>
+                                <select name="pageToggle" id="pageToggle" [(ngModel)]="page"
+                                    class="form-select form-select-sm">
+                                    <ng-container *ngFor="let item of createRange(p.getLastPage())">
+                                        <option [ngValue]="item.value" (change)="page=item.value">
+                                            {{item.value}}
+                                        </option>
+                                    </ng-container>
+                                </select>
+                            </span>
+                        </div>
+                        <div class="pagination-icon pagination-previous ps-2 pe-1">
+                            <span *ngIf="!p.isFirstPage()" (click)="p.previous()">
+                                <img src="../../../../assets/previous.png" alt="">
+                            </span>
+                        </div>
+                        <div class="pagination-icon pagination-next ps-1 pe-2">
+                            <span *ngIf="!p.isLastPage()" (click)="p.next()">
+                                <img src="../../../../assets/next.png" alt="">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </pagination-template>
     </div>
 </section>

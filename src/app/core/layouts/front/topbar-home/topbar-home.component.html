@@ -18,7 +18,7 @@
                         <a class="nav-link" href="https://toptalentapp.com/">Employer</a>
                     </li>
                 </ul>
-                <ul class="navbar-nav mb-2 mb-lg-0 ">
+                <ul class="navbar-nav mb-2 mb-lg-0 " *ngIf="!authService.isLogin()">
                     <li class="nav-item mx-2">
                         <button type="button" class="btn btn-outline-primary border-1 rounded-pill px-4"
                             (click)="submitRegister()">Sign
@@ -27,6 +27,21 @@
                     <li class="nav-item mx-2">
                         <button type="button" class="btn btn-primary rounded-pill px-4"
                             (click)="submitLogin()">Login</button>
+                    </li>
+                </ul>
+                <ul class="navbar-nav mb-2 mb-lg-0" *ngIf="authService.isLogin()">
+                    <li class="nav-item dropdown username">
+                        <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" class="d-flex">
+                            <span>{{ userData.jobseekerName }}</span>
+                            <img src="assets/dropdown.svg" alt="" height="25px">
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li> <a class="dropdown-item" routerLink="main/settings/{{userData.jobseekerId}}"><img
+                                        src="../../../../../assets/setting.svg" alt=""> Settings</a></li>
+                            <li> <a class="dropdown-item text-danger" (click)="logout()"><img
+                                        src="../../../../../assets/logout.svg" alt=""> Logout</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>

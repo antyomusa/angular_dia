@@ -1,4 +1,4 @@
-<div *ngIf="loaderService.isLoading | async" class="loader-container">
+<div *ngIf="status" class="loader-container">
     <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 </div>
 <header id="header">
@@ -10,7 +10,10 @@
                     <img src="assets/menu.svg" alt="">
                 </button>
             </div>
-            <a class="navbar-brand" routerLink="">
+            <a class="navbar-brand" routerLink="" *ngIf="!authService.isLogin()">
+                <img src="assets/logo.jpg" alt="" width="108" height="20">
+            </a>
+            <a class="navbar-brand" routerLink="/main/job-find" *ngIf="authService.isLogin()">
                 <img src="assets/logo.jpg" alt="" width="108" height="20">
             </a>
             <button class="navbar-toggler navbar-light" type="button" data-bs-toggle="collapse"
@@ -20,7 +23,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
-                    <li class="nav-item dropdown notif">
+                    <li class="nav-item dropdown notif" hidden>
                         <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             <img src="assets/bell.svg" alt="" height="25px">
@@ -66,7 +69,7 @@
                 <a href=""><img src="assets/bag.svg" alt="">
                     <p>Applied Jobs</p>
                 </a>
-                <a href=""><img src="assets/save.svg" alt="">
+                <a href="" hidden><img src="assets/save.svg" alt="">
                     <p>Saved Jobs</p>
                 </a>
             </div>

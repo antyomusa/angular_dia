@@ -9,8 +9,8 @@
                             <span matPrefix>
                                 <mat-icon class="me-2 text-secondary">search</mat-icon> &nbsp;
                             </span>
-                            <input matInput type="text" [(ngModel)]="value">
-                            <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                            <input matInput type="text" [(ngModel)]="fill" (keyup.enter)="keJobList()">
+                            <button *ngIf="fill" matSuffix mat-icon-button aria-label="Clear" (click)="fill=''">
                                 <mat-icon style="border: none;">close</mat-icon>
                             </button>
                         </mat-form-field>
@@ -21,8 +21,6 @@
                                 type="button" id="button-addon2" (click)="keJobList()">Search</button>
                         </div>
                     </div>
-
-
                 </div>
                 <div class="row content">
                     <div class="col-md-12">
@@ -78,11 +76,12 @@
                 </div>
             </div>
         </div>
-        <div class="search-result pb-4 pt-2">
-            <h1>Result for “{{ value }}”</h1>
+        <div class="search-result pb-4 pt-2" *ngIf="onSearch">
+            <h1>Result for “{{ fill }}”</h1>
             <h5>1-15 of 1.496 job matches</h5>
         </div>
-        <div class="section-white" *ngFor="let job of testModel.recentJobs">
+        <div class="section-white"
+            *ngFor="let job of testModel.recentJobs | paginate: { itemsPerPage: 3, currentPage: p}">
             <div class="card border-0">
                 <div class="section-title">
                     <div class="row">
@@ -96,7 +95,7 @@
                                             job.jobName
                                             }}
                                             <span class="badge ms-1"
-                                                [ngStyle]="{'color': (job.jobPosition === 'Contractual') ? '#006EFF' : (job.jobPosition === 'Full time') ? 'green' : ''}">{{job.jobPosition}}</span>
+                                                [ngStyle]="{'color': (job.jobPosition === 'Contractual') ? '#006EFF' : (job.jobPosition === 'Internship') ? '#ff9900' : (job.jobPosition === 'Part Time') ? '#ff0000' : (job.jobPosition === 'Full time') ? 'green' : ''}">{{job.jobPosition}}</span>
                                         </a>
                                     </h5>
                                     <a href="" class="recruiter-company">
@@ -117,15 +116,17 @@
                 </div>
             </div>
         </div>
+        <h6 *ngIf="let job of testModel.recentJobs.length===0">Not Filled Yet</h6>
+        <pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>
         <!-- <div class="row">
             <div class="col-md-12 py-3">
                 <div class="text-center">
                     <button type="button" class="btn btn-outline-secondary rounded-pill me-1">
                         < Previous Page</button>
-                            <button type="button" class="btn btn-primary rounded-pill ms-1">Next Page ></button>
+                        <button type="button" class="btn btn-primary rounded-pill ms-1">Next Page ></button>
+                    </div>
                 </div>
-            </div>
-        </div> -->
+            </div> -->
 
 
     </div>

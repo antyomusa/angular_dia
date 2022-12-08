@@ -199,42 +199,12 @@ mat-icon {
         }
 
     }
-
-    .pagination-icon {
-        display: inline-block;
-        cursor: pointer;
-        font-weight: bold;
-    }
-
-    .pagination-previous,
-    .pagination-next {
-        margin-right: 7px;
-    }
-
-    .custom-pagination,
-    .page-number {
-        display: inline-block;
-    }
-
-    .page-number span {
-        display: inline-block;
-        margin-right: 7px;
-        color: red;
-    }
-}
-
-.search-result {
-
-    h5,
-    h1 {
-        font-weight: 600;
-    }
 }
 
 .jobseeker-quote {
     background-image: url(/assets/bannerquote.png);
     background-size: cover;
-    margin-top: 100px;
+    margin-top: 50px;
     margin-bottom: 100px;
 
     .banner-quote {

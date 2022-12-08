@@ -1,24 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { JobService } from 'src/app/services/job/job.service';
-import { JobSearchModel } from './model/job-search.model';
+import { SearchModel } from './model/search.model';
 
 @Component({
-  selector: 'app-job-search',
-  templateUrl: './job-search.component.html',
-  styleUrls: ['./job-search.component.scss']
+  selector: 'app-search',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.scss']
 })
-export class JobSearchComponent implements OnInit {
+export class SearchComponent implements OnInit {
 
-  jobSearchModel = new JobSearchModel();
+  searchModel = new SearchModel();
 
   config: any;
 
   fill = '';
   result: string = '';
-  search: string = '';
   page: number = 1;
   noOfRows = 2;
+  onSearch: boolean = true;
 
   constructor(
     public readonly jobService: JobService,
@@ -34,7 +34,7 @@ export class JobSearchComponent implements OnInit {
       }
       this.jobService.searchJobs(params).subscribe(
         (response: any) => {
-          this.jobSearchModel.recentJobs = response.data;
+          this.searchModel.recentJobs = response.data;
         },
         (error) => {
         })
@@ -63,7 +63,7 @@ export class JobSearchComponent implements OnInit {
   }
 
   getLastIndex(currentPage: number, lastPage: number): string {
-    let lastIndex = this.jobSearchModel.recentJobs ? this.jobSearchModel.recentJobs.length : null;
+    let lastIndex = this.searchModel.recentJobs ? this.searchModel.recentJobs.length : null;
     if ((currentPage !== lastPage)) {
       lastIndex = (Number(this.noOfRows) * (Number(currentPage)));
     }
@@ -74,12 +74,7 @@ export class JobSearchComponent implements OnInit {
     this.router.navigate(["main/job-search"], { queryParams: { data: this.fill } }).then(() => {
       window.location.reload();
     });
+    this.onSearch = true;
   };
-
-
-
-  // doSomething(event: any) {
-  //   this.result = event;
-  // }
 
 }

@@ -17,7 +17,7 @@ export class ModalUploadCvComponent implements OnInit {
   file_error: any;
   selectedFile: File = null as any;
   selectedFileName = '';
-  invisible = true;
+  invisible: boolean = true;
 
   url = "../../../../../assets/uploadcv.png"
   url2 = "../../../../../assets/pdf2.png"
@@ -54,16 +54,16 @@ export class ModalUploadCvComponent implements OnInit {
     this.fileName = event.target.files[0].name;
     let fileSize = 0;
     let ext = null;
-    fileSize = (Math.round(this.selectedFile.size / 1024));
+    fileSize = (Math.round(this.selectedFile.size / 1024 * 10));
     if (fileSize >= 10024) {
-      // this.invisible = false;
+      this.invisible = true;
       this.file_error = "File size limited to 10mb"
     } else {
       ext = this.fileName.split('?')[0].split('.').pop();
       if (ext == 'pdf' || ext == 'PDF') {
-        this.invisible = true;
+        this.invisible = false;
       } else {
-        // this.invisible = false;
+        this.invisible = true;
         this.file_error = "please enter valid pdf file";
       }
     }

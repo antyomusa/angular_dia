@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
 import { ActivatedRoute, Router } from '@angular/router';
 import { JobService } from 'src/app/services/job/job.service';
 import { TestModel } from './model/test.model';
@@ -12,11 +13,12 @@ export class TestComponent implements OnInit {
 
 
   testModel = new TestModel();
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   p: any;
 
-  value = '';
-
+  fill = '';
+  onSearch: boolean = false;
   constructor(
     public readonly jobService: JobService,
     public readonly router: Router,
@@ -28,13 +30,14 @@ export class TestComponent implements OnInit {
   ngOnInit(): void {
 
     this.activeroute.queryParams.subscribe((params: any) => {
-      this.value = params.data;
+      this.fill = params.data;
       params = {
-        keyword: this.value
+        keyword: this.fill
       }
       this.jobService.searchJobs(params).subscribe(
         (response: any) => {
           this.testModel.recentJobs = response.data;
+          this.testModel.recentJobs.paginator = this.paginator;
           console.log(response.data)
         },
         (error) => {
@@ -43,7 +46,8 @@ export class TestComponent implements OnInit {
   }
 
   keJobList() {
-    this.router.navigate(["jobs/test"], { queryParams: { data: this.value } });
+    this.router.navigate(["jobs/test"], { queryParams: { data: this.fill } });
+    this.onSearch = true;
   };
 
 }

@@ -11,4 +11,6 @@ export class ProfileModel {
 
     removeSkill(skill: any) {
     }
+
+    salary: any = {};
 }

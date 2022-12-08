@@ -1,7 +1,7 @@
 <section class="profile">
     <div class="contain">
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <section class="personal-information section-white">
                     <div class="d-flex">
                         <h4 class="me-auto">Personal Information</h4>
@@ -13,7 +13,7 @@
                             <img src="{{profile.jobseekerImage || '../../../../../../assets/imgnotavailable.jpg'}}"
                                 alt="">
                         </div>
-                        <div class="col-sm-5 col-6 info-name">
+                        <div class="col-sm-3 col-6 info-name">
                             <h4>{{ profile.jobseekerName || "not filled yet" }}</h4>
                             <p> {{profile.jobseekerProfession || "not filled yet"}}</p>
                             <p>{{ profile.jobseekerAddress || "not filled yet" }}</p>
@@ -22,13 +22,13 @@
                                 <p>I’m Actively Applying</p>
                             </div>
                         </div>
-                        <div class="col-sm-3 col-6 info-img">
+                        <div class="col-sm-2 col-6 info-img">
                             <p>{{ profile.jobseekerPhone || "not filled yet" }}</p>
                             <p>{{ profile.jobseekerEmail || "not filled yet" }}</p>
                             <a href="{{ profile.jobseekerMedsos }}" target="_blank"><img
-                                    src="../../../../assets/linkedin.svg" alt=""></a>
-                            <a href="recruiterIg" target="_blank"><img src="../../../../assets/instagram.svg"
-                                    alt=""></a>
+                                    src="../../../../assets/linkedin.svg" alt="" class="me-1"></a>
+                            <a href="recruiterIg" target="_blank"><img src="../../../../assets/instagram.svg" alt=""
+                                    class="me-1"></a>
                             <a href="recruiterWebsite" target="_blank"><img src="../../../../assets/web.svg" alt=""></a>
                         </div>
                         <div class="col-sm-3 col-6 info-img">
@@ -38,13 +38,13 @@
                                     <a [href]="profile.jobseekerResume" target="_blank"><img
                                             src=" ../../../../assets/small-pdf.svg" alt="">
                                         {{profile.jobseekerResume===null?
-                                        'not filled yet' : 'cv uploaded'}}</a>
+                                        'not filled yet' : 'CV Uploaded'}}</a>
                                 </li>
                                 <li>
-                                    <a href="https://{{ profile.jobseekerPortfolio }}" target="_blank"><img
-                                            src="../../../../assets/chain.svg"
+                                    <a href="https://{{ profile.jobseekerPortfolio }}" target="_blank"
+                                        [class.disabled]="true"><img src="../../../../assets/chain.svg"
                                             alt="">{{profile.jobseekerPortfolio===null?
-                                        'not filled yet' : 'Portfolio'}}</a>
+                                        ' not filled yet' : ' Portfolio'}}</a>
                                 </li>
                             </ul>
                         </div>
@@ -53,7 +53,8 @@
                 <section class="top-skills section-white">
                     <div class="d-flex">
                         <h4 class="me-auto">Top Skills</h4>
-                        <button class="btn btn-sm btn-primary rounded-pill px-4">Edit</button>
+                        <button class="btn btn-sm btn-primary rounded-pill px-4"
+                            (click)="openEditSkills()">Edit</button>
                     </div>
 
                     <div class="row mt-4">
@@ -72,15 +73,14 @@
                                 src="../../../../assets/plus.svg" alt=""> Add Experience</button>
                         <button class="btn btn-sm btn-primary rounded-pill px-4">Edit</button>
                     </div>
-                    <div class="row user-job-detail mt-4">
+                    <div class="row user-job-detail mt-4" hidden>
                         <div class="col-md-1">
                             <img src="/../../../../assets/ideaco.png" alt="">
                         </div>
                         <div class="col-md-11">
-                            <h6>{{ profile.jobseekerProfession || "not filled yet" }}</h6>
-                            <p>{{ profile.jobseekerCompany || "not filled yet" }}</p>
-                            <p>{{ profile.workStartYear || "not filled yet" }} - {{
-                                profile.workEndYear || "not filled yet" }}</p>
+                            <h6>no data</h6>
+                            <p>no data</p>
+                            <p>2020 - 2022</p>
                             <p>Jakarta, Indonesia</p>
 
                             <div class="mt-3">
@@ -109,6 +109,12 @@
                             </div>
                         </div>
                     </div>
+                    <div>
+                        <h5 class="mt-3">
+                            Not Filled Yet
+
+                        </h5>
+                    </div>
                 </section>
                 <section class="education section-white">
                     <div class="d-flex">
@@ -117,16 +123,22 @@
                                 src="../../../../assets/plus.svg" alt=""> Add Education</button>
                         <button class="btn btn-sm btn-primary rounded-pill px-4">Edit</button>
                     </div>
-                    <div class="row user-job-detail mt-4">
+                    <div class="row user-job-detail mt-4" hidden>
                         <div class="col-md-1">
                             <img src="../../../../assets/university.svg" alt="">
                         </div>
                         <div class="col-md-11">
-                            <h6>tes</h6>
+                            <h6>no data</h6>
                             <p>PT Idea Kolaborasi Utama</p>
                             <p>2021 - Present</p>
                             <p>Jakarta, Indonesia</p>
                         </div>
+                    </div>
+                    <div class="row user-job-detail mt-4">
+                        <h5>
+                            Not Filled Yet
+
+                        </h5>
                     </div>
                 </section>
                 <section class="salary section-white">
@@ -137,16 +149,22 @@
                     <div class="row user-job-detail mt-4">
                         <div class="col-md-2">
                             <h6>Current Salary</h6>
-                            <p>IDR 9,000,000 (nett)</p>
+                            <p>{{profile.jobseekerSalary?.currentCurrency}} {{profile.jobseekerSalary?.currentSalary}}
+                            </p>
+                            <p *ngIf="profile.jobseekerSalary===null">not filled yet</p>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-6">
                             <h6>Expected Salary</h6>
-                            <p>IDR 11,000,000 (nett)</p>
+                            <p *ngIf="profile.jobseekerSalary!=null">{{profile.jobseekerSalary?.expectedCurrency}}
+                                {{profile.jobseekerSalary?.expectedMinimum}}
+                                -
+                                {{profile.jobseekerSalary?.expectedMaximum}} (nett)</p>
+                            <p *ngIf="profile.jobseekerSalary===null">not filled yet</p>
                         </div>
                     </div>
                 </section>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3" hidden>
                 <section class="section-white profile-completion">
                     <h5 class="mb-3">Profile Completion</h5>
                     <mat-progress-bar mode="determinate" value="100"></mat-progress-bar>

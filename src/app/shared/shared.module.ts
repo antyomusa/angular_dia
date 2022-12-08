@@ -13,16 +13,20 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { ComponentModule } from './component/component.module';
 
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
-    ReactiveFormsModule,
     NgbModule,
     HttpClientModule,
+    ReactiveFormsModule,
     FormsModule,
     NgxFileDropModule,
     MatSidenavModule,
@@ -33,7 +37,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     MatProgressBarModule,
     NgxPaginationModule,
     MatProgressSpinnerModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    MatPaginatorModule,
+    ComponentModule
   ]
 })
 export class SharedModule { }

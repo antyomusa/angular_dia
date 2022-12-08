@@ -14,7 +14,7 @@
             <p class="text-danger mt-2">{{file_error}}</p>
             <p class="text-secondary file-req">Acceptable file types are DOC, DOCX and PDF that is up to 10MB.</p>
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer" [hidden]="invisible">
             <button (click)="upload()" class="btn bg-primary rounded-pill px-5">
                 Submit
             </button>

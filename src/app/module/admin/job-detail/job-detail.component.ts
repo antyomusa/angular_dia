@@ -13,9 +13,7 @@ export class JobDetailComponent implements OnInit {
 
   jobDetailModel = new JobDetailModel();
 
-  job: any = {
-    jobName: '',
-  };
+  job: any = {};
   id: any;
 
   constructor(
@@ -26,6 +24,7 @@ export class JobDetailComponent implements OnInit {
 
 
   ngOnInit(): void {
+
 
     this.activatedRoute.paramMap.subscribe((data: any) => {
       let id = data.params.id,
@@ -38,7 +37,6 @@ export class JobDetailComponent implements OnInit {
         (response: any) => {
           this.jobDetailModel.singleJobs = response.data;
           this.job = this.jobDetailModel.singleJobs;
-          console.log(this.jobDetailModel.singleJobs)
         })
     })
   }

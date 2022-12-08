@@ -7,6 +7,7 @@ import { ModalAddExperienceComponent } from 'src/app/shared/component/modal/moda
 import { ModalPersonalInformationComponent } from 'src/app/shared/component/modal/modal-personal-information/modal-personal-information.component';
 import { ProfileModel } from './model/profile.model';
 import { ProfileService } from 'src/app/services/profile/profile.service';
+import { ModalEditSkillsComponent } from 'src/app/shared/component/modal/modal-edit-skills/modal-edit-skills.component';
 
 @Component({
   selector: 'app-profile',
@@ -17,7 +18,7 @@ export class ProfileComponent implements OnInit {
 
   profileModel = new ProfileModel();
 
-  profile: any;
+  profile: any = {};
   id: any;
 
   constructor(
@@ -40,7 +41,9 @@ export class ProfileComponent implements OnInit {
         (response: any) => {
           this.profileModel.userProfile = response.data;
           this.profile = this.profileModel.userProfile;
+          console.log(this.profileModel.userProfile)
           this.profileModel.skills = response.data.skills;
+          this.profileModel.salary = response.data.jobseekerSalary;
         },
         (error) => {
         })
@@ -63,6 +66,14 @@ export class ProfileComponent implements OnInit {
     const modal = this.modalService.open(
       ModalPersonalInformationComponent, { size: 'lg' }
     );
+    modal.componentInstance.data = this.profileModel.userProfile;
+  }
+
+  openEditSkills() {
+    const modal = this.modalService.open(
+      ModalEditSkillsComponent, { size: 'lg' }
+    );
+    modal.componentInstance.data = this.profileModel.userProfile;
   }
 
 

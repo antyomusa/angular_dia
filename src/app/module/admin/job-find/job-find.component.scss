@@ -198,22 +198,47 @@ mat-icon {
 
         }
 
+
+
     }
-}
 
-.ngx-pagination {
-    padding-left: 0px !important;
-}
+    .btn-circle {
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        font-size: 120px;
+        border-radius: 15px;
+    }
 
-.ngx-pagination .current,
-.btn-info {
-    background: #17a2b8 !important;
-    border: transparent !important;
-    border-radius: 20px !important;
-}
+    .custom-pagination {
+        justify-content: flex-end;
+    }
 
-.ngx-pagination .current:hover {
-    background: #17a2b8 !important;
-    border-radius: 20px !important;
-    border: transparent !important;
+    .example-label {
+        display: table-cell;
+        font-size: 14px;
+        margin-left: 8px;
+        min-width: 120px;
+    }
+
+    .example-button-row {
+        display: table-cell;
+        max-width: 600px;
+    }
+
+    .example-button-row .mat-mdc-button-base {
+        margin: 8px 8px 8px 0;
+    }
+
+    .example-flex-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .example-button-container {
+        display: flex;
+        justify-content: center;
+        width: 120px;
+    }
 }
