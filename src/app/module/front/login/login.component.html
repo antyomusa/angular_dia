@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="contentBox col-md-6">
-            <img src="../../../../assets/fix.png" class="card-img-top" alt="image">
+            <img src="assets/fix.png" class="card-img-top" alt="image">
         </div>
         <div class="col-md-6 mt-4">
             <div>
@@ -16,19 +16,23 @@
                 </div>
                 <p class="text-secondary text-gray-900 mb-4">Email</p>
                 <div class="form-group">
-                    <input formControlName="jobseekerEmail" type="email" class="form-control form-control-user"
+                    <input matInput formControlName="jobseekerEmail" type="email" class="form-control form-control-user"
                         id="exampleInputEmail" aria-describedby="emailHelp" placeholder="youremail@mail.com" required>
+                    <mat-icon class="icon-email"> email</mat-icon>
                     <div class="text-secondary text-s"
                         *ngIf="!loginModel.formGroupLogin.controls['jobseekerEmail'].valid">
                         <span style="color: red;">A valid email is required</span>
                     </div>
                 </div>
-                <p class="text-secondary text-gray-900 mb-4">Password</p>
+                <p class="text-secondary text-gray-900 mb-4 position">Password</p>
                 <div class="form-group">
-                    <input formControlName="jobseekerPassword" type="password" class="form-control form-control-user"
-                        id="exampleInputPassword" placeholder="Enter your password" minlength="8" required="">
+                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="jobseekerPassword"
+                        class="form-control form-control-user position" id="exampleInputPassword"
+                        placeholder="Enter your password" minlength="8" required="">
+                    <mat-icon class="icon-eye" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' :
+                        'visibility'}}</mat-icon>
                 </div>
-                <div class="form-group">
+                <div class="form-group-2">
                     <div class="custom-control custom-checkbox small d-flex">
                         <div class="form-check me-auto">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -36,15 +40,19 @@
                                 Remember Me
                             </label>
                         </div>
-                        <a (click)="submitForgot()" style="color:#006EFF;" type="button">Forgot Password?</a>
+                        <a class="position2" (click)="submitForgot()" style="color:#006EFF;" type="button">Forgot
+                            Password?</a>
                     </div>
                 </div>
                 <div class="d-grid gap-2">
-                    <button class="font-style-btn btn btn-primary btn-user">Login</button>
+                    <button (click)="toggleLoading()" class="font-style-btn btn btn-primary btn-user">
+                        <img *ngIf="isLoading" style="width : 24px" src="../../../../assets/loading.gif" />
+                        Login
+                    </button>
                 </div>
             </form>
             <div class="text-center text3"> Don’t have any account?
-                <a class="small" href=""> Sign Up For Free!</a>
+                <a (click)="signUp()" class="small" type="button"> Sign Up For Free!</a>
             </div>
         </div>
     </div>

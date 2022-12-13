@@ -13,11 +13,14 @@ export class ModalEditSkillsComponent implements OnInit {
 
   @Input() data: any;
 
+  dropdownList: any = [];
+  selectedItems: any = [];
+  dropdownSettings: any = {};
   userData: any = {};
   editSkillsModel = new EditSkillsModel;
   profile: any = {};
   skillsSet: any = {};
-
+  selectedOption: unknown;
 
   constructor(
     public readonly authService: AuthService,
@@ -38,6 +41,31 @@ export class ModalEditSkillsComponent implements OnInit {
         this.profile = this.editSkillsModel.userSkills;
         this.editSkillsModel.skills = response.data.skills;
       })
+
+    this.profileService.getAllSkills().subscribe(
+      (response) => {
+        this.editSkillsModel.allSkills = response.data;
+        console.log(response.data)
+      },
+      (error) => {
+
+      }
+    );
+    this.dropdownSettings = {
+      singleSelection: false,
+      idField: 'skillId',
+      textField: 'skillName',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      enableCheckAll: false
+    };
+  }
+
+  onItemSelect(ev: any) {
+    console.log(ev);
+  }
+  onSelectAll(ev: any) {
+    console.log(ev);
   }
 
 }

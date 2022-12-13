@@ -3,20 +3,20 @@
         <div class="section-white">
             <div class="section-search-grey">
                 <div class="row">
-                    <div class="col-md-10">
+                    <div class="col-lg-10 col-md-12 col-sm-12 col-12">
                         <mat-form-field class="example-form-field container-fluid" appearance="fill">
                             <mat-label>Search for a job</mat-label>
                             <span matPrefix>
                                 <mat-icon class="me-2 text-secondary">search</mat-icon> &nbsp;
                             </span>
-                            <input matInput type="text" [(ngModel)]="fill" (ngModelChange)="search"
-                                (keyup.enter)="keJobSearch()" (change)="page = 1">
+                            <input matInput type="text" [(ngModel)]="fill" (keyup.enter)="keJobSearch()"
+                                (change)="page = 1" id="keyword" name="keyword" #keyword>
                             <button *ngIf="fill" matSuffix mat-icon-button aria-label="Clear" (click)="fill=''">
                                 <mat-icon style="border: none;">close</mat-icon>
                             </button>
                         </mat-form-field>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-lg-2 col-md-12 col-sm-12 col-12">
                         <div class="input-group-append">
                             <button class="btn btn-search bg-primary rounded-pill px-5 py-2 container-fluid mt-2"
                                 type="button" id="button-addon2" (click)="keJobSearch()"
@@ -79,13 +79,13 @@
             </div>
         </div>
         <div class="search-result pb-4 pt-2">
-            <h1>Result for “{{ search }}”</h1>
+            <h1>Result for “{{ fill }}”</h1>
             <pagination-template #p="paginationApi" (pageChange)="page = $event">
                 <h5>{{getStartIndex(p.getCurrent(), p.getLastPage())}}-{{getLastIndex(p.getCurrent(),
                     p.getLastPage())}} of {{this.jobSearchModel.recentJobs?.length}} job matches</h5>
             </pagination-template>
         </div>
-        <div *ngIf="jobSearchModel.recentJobs==0" class="my-5 ">
+        <div *ngIf="jobSearchModel.recentJobs==0" class="my-5">
             <h2 class="fw-bold">No Job Found</h2>
         </div>
         <div class="section-white"

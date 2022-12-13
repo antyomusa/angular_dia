@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { JobService } from 'src/app/services/job/job.service';
 import { JobSearchModel } from './model/job-search.model';
@@ -13,17 +13,18 @@ export class JobSearchComponent implements OnInit {
   jobSearchModel = new JobSearchModel();
 
   config: any;
-
+  phoneForm: any;
   fill = '';
   result: string = '';
-  search: string = '';
+  finalresult: any;
+  userkeyword: string = '';
   page: number = 1;
   noOfRows = 2;
 
   constructor(
     public readonly jobService: JobService,
     public readonly router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
@@ -71,15 +72,10 @@ export class JobSearchComponent implements OnInit {
   }
 
   keJobSearch() {
-    this.router.navigate(["main/job-search"], { queryParams: { data: this.fill } }).then(() => {
-      window.location.reload();
-    });
+    this.finalresult = this.fill;
+    this.router.navigate(["main/job-search"], { queryParams: { data: this.fill } })
+      .then(() => {
+        window.location.reload();
+      });
   };
-
-
-
-  // doSomething(event: any) {
-  //   this.result = event;
-  // }
-
 }

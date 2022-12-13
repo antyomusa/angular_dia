@@ -14,6 +14,7 @@ $hijau : #149E48;
     font-family: 'Montserrat', sans-serif;
 }
 
+
 .contain {
     padding-left: 2%;
     padding-right: 2%;
@@ -38,6 +39,24 @@ $hijau : #149E48;
     }
 
 
+    .country-selector {
+        opacity: 10000 !important;
+        bottom: 8px !important;
+    }
+
+    input:not(.country-search) {
+        bottom: 3px;
+        left: 10px;
+    }
+
+    .mat-menu-content:not(:empty) {
+        max-height: 250px;
+    }
+
+
+    .country-list-button {
+        font-size: 0.8rem !important;
+    }
 }
 
 .verified {

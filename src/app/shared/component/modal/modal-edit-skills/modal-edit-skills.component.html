@@ -7,17 +7,12 @@
         </div>
         <div class="modal-body text-center">
             <div class="row">
-                <div class="col-md-12 btn-exp">
-                    <label class="form-label text-black">Top Skills</label>
-                    <div class="py-3 px-3">
-                        <button type="button" class="btn btn-outline-primary rounded-pill me-2"
-                            *ngFor="let item of editSkillsModel.skills">
-                            {{ item.skillName }}</button>
-                    </div>
-                </div>
-                <h6 *ngIf="editSkillsModel.skills.length===0">Not Filled Yet</h6>
+                <label class="form-label">Top Skills</label>
+                <ng-multiselect-dropdown [placeholder]="'Select your Skills'" [settings]="dropdownSettings"
+                    [data]="editSkillsModel.allSkills" [(ngModel)]="editSkillsModel.skills"
+                    (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)" (enableCheckAll)="false">
+                </ng-multiselect-dropdown>
             </div>
-
         </div>
         <div class="modal-footer border-0">
             <button (click)="activeModal.dismiss('Cross click')" class="btn btn-outline-primary rounded-pill px-5">

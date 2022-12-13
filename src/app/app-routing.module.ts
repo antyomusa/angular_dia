@@ -19,11 +19,15 @@ const routes: Routes = [
     loadChildren: () => import('../app/module/verif/verif.module').then((x) => x.VerifModule)
   },
   {
+    path: 'verify-again',
+    loadChildren: () => import('../app/module/verify-again/verify-again.module').then((x) => x.VerifyAgainModule)
+  },
+  {
     path: 'forgot-password',
     loadChildren: () => import('../app/module/forgot-password/forgot-password.module').then((x) => x.ForgotPasswordModule)
   },
   {
-    path: 'change-password',
+    path: 'change-password/:token',
     loadChildren: () => import('../app/module/change-password/change-password.module').then((x) => x.ChangePasswordModule)
   }
 ];

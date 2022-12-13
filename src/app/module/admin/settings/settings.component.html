@@ -14,6 +14,11 @@
                             <p class="ms-1">Verified</p>
                         </div>
                     </div>
+                    <mat-form-field appearance="outline">
+                        <ngx-mat-intl-tel-input [preferredCountries]="['us', 'gb']" [enablePlaceholder]="true"
+                            name="phone" #phone>
+                        </ngx-mat-intl-tel-input>
+                    </mat-form-field>
                     <br>
                     <p>To change your e-mail, please complete the following fields.</p>
                     <div class="mb-3">

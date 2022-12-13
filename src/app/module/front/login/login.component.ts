@@ -13,9 +13,20 @@ import { LoginModel } from './model/login.model';
 export class LoginComponent implements OnInit {
 
 
+  hide = true;
+  public showPassword: boolean = false;
   data: any;
+  loginModel = new LoginModel();
+  isLoading = false;
 
-  loginModel = new LoginModel()
+  toggleLoading = () => {
+    this.isLoading = true;
+
+    //Faking an API call
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 3000);
+  };
 
   constructor(
     private readonly loginService: LoginService,
@@ -42,8 +53,15 @@ export class LoginComponent implements OnInit {
     )
   }
 
-
   submitForgot() {
     this.router.navigate(["forgot-password"]);
+  }
+
+  signUp() {
+    this.router.navigate(['sign-up']);
+  }
+
+  public togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
   }
 }

@@ -7,6 +7,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { InterceptorService } from './services/interceptor/interceptor.service';
+import { ToastrModule } from 'ngx-toastr';
+import { ModalVerifyModule } from './shared/component/modal/modal-verify/modal-verify.module';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,9 @@ import { InterceptorService } from './services/interceptor/interceptor.service';
     HttpClientModule,
     BrowserAnimationsModule,
     NgbModule,
+    ToastrModule.forRoot(),
+    ModalVerifyModule,
+    NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [
     {

@@ -5,8 +5,8 @@
                 <section class="personal-information section-white">
                     <div class="d-flex">
                         <h4 class="me-auto">Personal Information</h4>
-                        <button class="btn btn-sm btn-primary rounded-pill px-4"
-                            (click)="openEditPersonalInformation()">Edit</button>
+                        <button class="btn btn-sm btn-primary rounded-pill px-4 btn-edit"
+                            (click)="openEditPersonalInformation()"><span>Edit </span> </button>
                     </div>
                     <div class="row mt-4">
                         <div class=" col-sm-1 col-5 text-center">
@@ -35,16 +35,24 @@
                             <ul>
                                 <li>
 
-                                    <a [href]="profile.jobseekerResume" target="_blank"><img
-                                            src=" ../../../../assets/small-pdf.svg" alt="">
-                                        {{profile.jobseekerResume===null?
-                                        'not filled yet' : 'CV Uploaded'}}</a>
+                                    <a [href]="profile.jobseekerResume" target="_blank"
+                                        *ngIf="profile.jobseekerResume"><img src="../../../../assets/small-pdf.svg"
+                                            alt="">
+                                        CV uploaded</a>
+                                    <a [href]="profile.jobseekerResume" target="_blank" *ngIf="!profile.jobseekerResume"
+                                        style="pointer-events: none;"><img src="../../../../assets/small-pdf.svg"
+                                            alt="">
+                                        not filled yet</a>
                                 </li>
                                 <li>
-                                    <a href="https://{{ profile.jobseekerPortfolio }}" target="_blank"
-                                        [class.disabled]="true"><img src="../../../../assets/chain.svg"
-                                            alt="">{{profile.jobseekerPortfolio===null?
-                                        ' not filled yet' : ' Portfolio'}}</a>
+                                    <a [href]="profile.jobseekerPortfolio" target="_blank"
+                                        *ngIf="profile.jobseekerPortfolio"><img src="../../../../assets/chain.svg"
+                                            alt="">
+                                        Portfolio</a>
+                                    <a [href]="profile.jobseekerPortfolio" target="_blank"
+                                        *ngIf="!profile.jobseekerPortfolio" style="pointer-events: none;"><img
+                                            src="../../../../assets/chain.svg" alt="">
+                                        not filled yet</a>
                                 </li>
                             </ul>
                         </div>
@@ -70,8 +78,9 @@
                     <div class="d-flex">
                         <h4 class="me-auto">Working Experiences</h4>
                         <button class="btn btn-sm btn-primary rounded-pill px-4 me-2" (click)="openAddExperience()"><img
-                                src="../../../../assets/plus.svg" alt=""> Add Experience</button>
-                        <button class="btn btn-sm btn-primary rounded-pill px-4">Edit</button>
+                                src="../../../../assets/plus.svg" alt=""><span> Add Experience</span></button>
+                        <button class="btn btn-sm btn-primary rounded-pill px-4">
+                            Edit</button>
                     </div>
                     <div class="row user-job-detail mt-4" hidden>
                         <div class="col-md-1">
@@ -120,8 +129,8 @@
                     <div class="d-flex">
                         <h4 class="me-auto">Education</h4>
                         <button class="btn btn-sm btn-primary rounded-pill px-4 me-2" (click)="openAddEducation()"><img
-                                src="../../../../assets/plus.svg" alt=""> Add Education</button>
-                        <button class="btn btn-sm btn-primary rounded-pill px-4">Edit</button>
+                                src="../../../../assets/plus.svg" alt=""><span> Add Education</span></button>
+                        <button class="btn btn-sm btn-primary rounded-pill px-4">Edit </button>
                     </div>
                     <div class="row user-job-detail mt-4" hidden>
                         <div class="col-md-1">
@@ -144,7 +153,7 @@
                 <section class="salary section-white">
                     <div class="d-flex">
                         <h4 class="me-auto">Salary</h4>
-                        <button class="btn btn-sm btn-primary rounded-pill px-4">Edit</button>
+                        <button class="btn btn-sm btn-primary rounded-pill px-4 btn-edit">Edit </button>
                     </div>
                     <div class="row user-job-detail mt-4">
                         <div class="col-md-2">
@@ -158,6 +167,7 @@
                             <p *ngIf="profile.jobseekerSalary!=null">{{profile.jobseekerSalary?.expectedCurrency}}
                                 {{profile.jobseekerSalary?.expectedMinimum}}
                                 -
+                                {{profile.jobseekerSalary?.expectedCurrency}}
                                 {{profile.jobseekerSalary?.expectedMaximum}} (nett)</p>
                             <p *ngIf="profile.jobseekerSalary===null">not filled yet</p>
                         </div>

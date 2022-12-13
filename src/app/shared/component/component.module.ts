@@ -9,14 +9,17 @@ import { ModalAddExperienceComponent } from './modal/modal-add-experience/modal-
 import { ModalAddEducationComponent } from './modal/modal-add-education/modal-add-education.component';
 import { ModalPersonalInformationComponent } from './modal/modal-personal-information/modal-personal-information.component';
 import { ModalEditSkillsComponent } from './modal/modal-edit-skills/modal-edit-skills.component';
+import { ModalVerifyModule } from './modal/modal-verify/modal-verify.module';
+import { ModalEditSkillsModule } from './modal/modal-edit-skills/modal-edit-skills.module';
+import { ModalPersonalInformationModule } from './modal/modal-personal-information/modal-personal-information.module';
 
 
 @NgModule({
   declarations: [
     ModalUploadCvComponent,
     ModalAddExperienceComponent,
-    ModalPersonalInformationComponent,
-    ModalEditSkillsComponent
+
+
   ],
   imports: [
     CommonModule,
@@ -25,8 +28,9 @@ import { ModalEditSkillsComponent } from './modal/modal-edit-skills/modal-edit-s
     HttpClientModule,
   ],
   exports: [
-    ModalPersonalInformationComponent,
-    ModalEditSkillsComponent,
+    ModalPersonalInformationModule,
+    ModalEditSkillsModule,
+    ModalVerifyModule,
     FormsModule,
     ReactiveFormsModule,
   ]

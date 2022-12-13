@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { JobSearchRoutingModule } from './job-search-routing.module';
 import { JobSearchComponent } from './job-search.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { NgxMatIntlTelInputComponent } from 'ngx-mat-intl-tel-input';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     JobSearchRoutingModule,
-    SharedModule
+    SharedModule,
+    NgxMatIntlTelInputComponent
   ]
 })
 export class JobSearchModule { }

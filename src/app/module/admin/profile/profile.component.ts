@@ -41,7 +41,6 @@ export class ProfileComponent implements OnInit {
         (response: any) => {
           this.profileModel.userProfile = response.data;
           this.profile = this.profileModel.userProfile;
-          console.log(this.profileModel.userProfile)
           this.profileModel.skills = response.data.skills;
           this.profileModel.salary = response.data.jobseekerSalary;
         },

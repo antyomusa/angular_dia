@@ -14,14 +14,20 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { ComponentModule } from './component/component.module';
+import { MaterialFileInputModule } from 'ngx-material-file-input';
+import { NgxMatIntlTelInputComponent } from 'ngx-mat-intl-tel-input';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxMatIntlTelInputComponent
   ],
   exports: [
     NgbModule,
@@ -39,6 +45,9 @@ import { ComponentModule } from './component/component.module';
     MatProgressSpinnerModule,
     Ng2SearchPipeModule,
     MatPaginatorModule,
+    MatAutocompleteModule,
+    NgxMatIntlTelInputComponent,
+    NgMultiSelectDropDownModule,
     ComponentModule
   ]
 })

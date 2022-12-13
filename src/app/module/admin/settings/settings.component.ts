@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ProfileService } from 'src/app/services/profile/profile.service';
 import { SettingsModel } from './model/settings.model';
@@ -12,9 +13,14 @@ export class SettingsComponent implements OnInit {
 
   settingsModel = new SettingsModel();
 
+
   profile: any;
   id: any;
   hide = true;
+  phoneForm = new FormGroup({
+    phone: new FormControl('', Validators.required)
+
+  });
 
   constructor(
     public readonly activatedRoute: ActivatedRoute,
