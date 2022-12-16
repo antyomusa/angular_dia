@@ -34,7 +34,6 @@
                         <div class="col-sm-3 col-6 info-img">
                             <ul>
                                 <li>
-
                                     <a [href]="profile.jobseekerResume" target="_blank"
                                         *ngIf="profile.jobseekerResume"><img src="../../../../assets/small-pdf.svg"
                                             alt="">
@@ -82,17 +81,21 @@
                         <button class="btn btn-sm btn-primary rounded-pill px-4">
                             Edit</button>
                     </div>
-                    <div class="row user-job-detail mt-4" hidden>
+                    <div class="row user-job-detail mt-4" *ngIf="profile.jobseekerExperience">
                         <div class="col-md-1">
                             <img src="/../../../../assets/ideaco.png" alt="">
                         </div>
                         <div class="col-md-11">
-                            <h6>no data</h6>
-                            <p>no data</p>
-                            <p>2020 - 2022</p>
-                            <p>Jakarta, Indonesia</p>
+                            <h6>{{ profile.jobseekerExperience?.jobTitle }}</h6>
+                            <p>{{ profile.jobseekerExperience?.status }}</p>
+                            <p>{{ profile.jobseekerExperience?.startPeriodMonth }}, {{
+                                profile.jobseekerExperience?.startPeriodYear }} - {{
+                                profile.jobseekerExperience?.endPeriodMonth }}, {{
+                                profile.jobseekerExperience?.endPeriodYear }}</p>
+                            <p>{{ profile.jobseekerExperience?.workLocationCity }}, {{
+                                profile.jobseekerExperience?.workLocationCountry }}</p>
 
-                            <div class="mt-3">
+                            <div class="mt-3" hidden>
                                 <ol>
                                     <li>
                                         Assign as a product owner in digital applications development
@@ -119,7 +122,7 @@
                         </div>
                     </div>
                     <div>
-                        <h5 class="mt-3">
+                        <h5 class="mt-3" *ngIf="!profile.jobseekerExperience">
                             Not Filled Yet
 
                         </h5>
@@ -132,28 +135,32 @@
                                 src="../../../../assets/plus.svg" alt=""><span> Add Education</span></button>
                         <button class="btn btn-sm btn-primary rounded-pill px-4">Edit </button>
                     </div>
-                    <div class="row user-job-detail mt-4" hidden>
+                    <div class="row user-job-detail mt-4" *ngIf="profile.jobseekerEducation">
                         <div class="col-md-1">
                             <img src="../../../../assets/university.svg" alt="">
                         </div>
                         <div class="col-md-11">
-                            <h6>no data</h6>
-                            <p>PT Idea Kolaborasi Utama</p>
-                            <p>2021 - Present</p>
-                            <p>Jakarta, Indonesia</p>
+                            <p>{{ profile.jobseekerEducation?.schoolUniversity }}</p>
+                            <p>{{ profile.jobseekerEducation?.startPeriodMonth}}, {{
+                                profile.jobseekerEducation?.startPeriodYear}} - {{
+                                profile.jobseekerEducation?.endPeriodMonth}}, {{
+                                profile.jobseekerEducation?.endPeriodYear}}</p>
+                            <p>GPA : {{ profile.jobseekerEducation?.gradePoint | number:'0.2-2' }} / {{
+                                profile.jobseekerEducation?.gradePointMax | number:'0.2-2' }}</p>
+                            <!-- <p>Jakarta, Indonesia</p> -->
                         </div>
                     </div>
-                    <div class="row user-job-detail mt-4">
+                    <div class="row user-job-detail mt-4" *ngIf="!profile.jobseekerEducation">
                         <h5>
                             Not Filled Yet
-
                         </h5>
                     </div>
                 </section>
                 <section class="salary section-white">
                     <div class="d-flex">
                         <h4 class="me-auto">Salary</h4>
-                        <button class="btn btn-sm btn-primary rounded-pill px-4 btn-edit">Edit </button>
+                        <button class="btn btn-sm btn-primary rounded-pill px-4 btn-edit"
+                            (click)=" openEditSalary()">Edit </button>
                     </div>
                     <div class="row user-job-detail mt-4">
                         <div class="col-md-2">

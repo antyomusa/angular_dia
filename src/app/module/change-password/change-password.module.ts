@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ChangePasswordRoutingModule } from './change-password-routing.module';
 import { ChangePasswordComponent } from './change-password.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     ChangePasswordRoutingModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ]
 })
 export class ChangePasswordModule { }

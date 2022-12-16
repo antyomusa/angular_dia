@@ -61,6 +61,7 @@ export class ApplyComponent implements OnInit {
     modal.componentInstance.file = this.applyModel.applyModelForm.controls['jobseekerResume'];
     modal.componentInstance.onUpload = () => { this.onUpload() }
   }
+
   onUpload() {
     this.applyModel.applyModelForm.controls['jobseekerId'].setValue(this.userData.jobseekerId);
     console.log(this.applyModel.applyModelForm.value)

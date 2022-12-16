@@ -1,0 +1,75 @@
+<div class="modal-dialog">
+    <div class="modal-content border-0">
+        <div class="modal-header border-0">
+            <h5 class="modal-title" id="exampleModalLabel">Edit Job Experience</h5>
+            <button (click)="activeModal.dismiss('Cross click')" type="button" class="btn-close" data-bs-dismiss="modal"
+                aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+            <form class="form-group" [formGroup]="profileModel.addSalaryModelForm" (ngSubmit)="upload()">
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="select" class="form-label">Job Type</label>
+                            <!-- <select id="Select" class="form-select">
+                                <option value="rp">
+                                    IDR</option>
+                            </select> -->
+                            <input matInput formControlName="currentCurrency" type="email" class="form-control"
+                                id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Write your job title">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Job Title</label>
+                            <input matInput formControlName="currentSalary" type="email" class="form-control"
+                                id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Write your job title">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="select" class="form-label">Job Type</label>
+                            <!-- <select id="Select" class="form-select">
+                                <option value="rp">
+                                    IDR</option>
+                            </select> -->
+                            <input matInput formControlName="expectedCurrency" type="email" class="form-control"
+                                id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Write your job title">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Job Title</label>
+                            <input matInput formControlName="expectedMinimum" type="email" class="form-control"
+                                id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Write your job title">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Job Title</label>
+                            <input matInput formControlName="expectedMaximum" type="email" class="form-control"
+                                id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Write your job title">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <button class="font-style-btn btn btn-primary btn-user">
+                        Login
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer border-0">
+            <button (click)="activeModal.dismiss('Cross click')" class="btn btn-outline-primary rounded-pill px-5">
+                Cancel
+            </button>
+            <button class="btn btn-primary rounded-pill px-5">
+                Submit
+            </button>
+        </div>
+    </div>
+</div>

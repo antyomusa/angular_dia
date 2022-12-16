@@ -15,9 +15,11 @@ import { LoaderService } from 'src/app/services/loader/loader.service';
 })
 export class SignUpComponent implements OnInit {
 
-  data: any;
+  ata: any;
   submitted: boolean = false;
   registerModel = new RegisterModel();
+  hide = true;
+  hide2 = true;
   isLoading = false;
 
   toggleLoading = () => {
@@ -34,7 +36,6 @@ export class SignUpComponent implements OnInit {
     private readonly verifyEmailService: VerifyEmailService,
     private readonly router: Router,
     private toastr: ToastrService,
-    private readonly modalService: NgbModal,
     public loader: LoaderService
   ) { }
 
@@ -47,14 +48,14 @@ export class SignUpComponent implements OnInit {
   onRegister() {
     this.registerService.postRegister(this.registerModel.formGroupRegister.value).subscribe(
       (response) => {
-        this.registerService.saveRegisterData(response.data);
-        this.verifyEmailService.sendVerificationMail(response.data);
-        this.submitted = true;
-        this.router.navigate(['verif'],{queryParams:{data:this.registerModel.formGroupRegister.controls['jobseekerEmail'].value}})
-        this.toastr.success('Success', '');
+        this.registerService.saveRegisterData(response.data)
+        this.verifyEmailService.sendVerificationMail(response.data)
+        this.submitted = true
+        this.router.navigate(['verif'], { queryParams: { data: this.registerModel.formGroupRegister.controls['jobseekerEmail'].value } })
+        this.toastr.success('Email has been send!', 'Success')
       },
       (error) => {
-        this.toastr.error('Failed', 'Email is already registered', {
+        this.toastr.error('Email is already registered', 'Failed', {
           timeOut: 3000,
         });
       }
@@ -74,18 +75,12 @@ export class SignUpComponent implements OnInit {
   }
 
   sendingEmail() {
-        this.router.navigate(['verify-again'])
-      }
-      
+    this.router.navigate(['verify-again'])
+  }
+
   onLogin() {
     this.router.navigate(['login'])
   }
 
-  openModalVerify() {
-    const modal = this.modalService.open(
-      ModalVerifyComponent, { size: 'md' }
-  )}
-
-  
 }
 

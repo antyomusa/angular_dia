@@ -12,14 +12,14 @@ import { ModalEditSkillsComponent } from './modal/modal-edit-skills/modal-edit-s
 import { ModalVerifyModule } from './modal/modal-verify/modal-verify.module';
 import { ModalEditSkillsModule } from './modal/modal-edit-skills/modal-edit-skills.module';
 import { ModalPersonalInformationModule } from './modal/modal-personal-information/modal-personal-information.module';
+import { ModalEditSalaryModule } from './modal/modal-edit-salary/modal-edit-salary.module';
+import { ModalAddSalaryModule } from './modal/modal-add-salary/modal-add-salary.module';
 
 
 @NgModule({
   declarations: [
     ModalUploadCvComponent,
     ModalAddExperienceComponent,
-
-
   ],
   imports: [
     CommonModule,
@@ -33,6 +33,8 @@ import { ModalPersonalInformationModule } from './modal/modal-personal-informati
     ModalVerifyModule,
     FormsModule,
     ReactiveFormsModule,
+    ModalEditSalaryModule,
+    ModalAddSalaryModule
   ]
 })
 export class ComponentModule { }

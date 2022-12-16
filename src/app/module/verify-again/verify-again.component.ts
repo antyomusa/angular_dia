@@ -16,9 +16,9 @@ export class VerifyAgainComponent implements OnInit {
   show = true;
   isLoading = false;
 
+
   toggleLoading = () => {
     this.isLoading = true;
-
     //Faking an API call
     setTimeout(() => {
       this.isLoading = false;
@@ -39,7 +39,7 @@ export class VerifyAgainComponent implements OnInit {
         (response) => {
           this.submitted = true;
           this.verifyEmailService.sendVerificationMail(response.data);
-          this.toastr.success('Email has been send', 'Success');
+          this.toastr.success('Email has been send!', 'Success');
         },
         (error) => {
         }
@@ -48,5 +48,4 @@ export class VerifyAgainComponent implements OnInit {
       this.toastr.error('', 'Error');
     }
   }
-
 }

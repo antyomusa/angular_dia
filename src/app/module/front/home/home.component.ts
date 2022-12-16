@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
   };
 
   keJobList() {
-    this.router.navigate(["jobs/list"], { queryParams: { data: this.fill } });
+    this.router.navigate(["jobs/test"], { queryParams: { data: this.fill } });
   };
 
   keJobSearch() {

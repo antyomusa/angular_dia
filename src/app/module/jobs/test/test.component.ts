@@ -15,9 +15,15 @@ export class TestComponent implements OnInit {
   testModel = new TestModel();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  p: any;
-
+  config: any;
+  phoneForm: any;
   fill = '';
+  result: string = '';
+  finalresult: any;
+  userkeyword: string = '';
+  page: number = 1;
+  noOfRows = 2;
+
   onSearch: boolean = false;
   constructor(
     public readonly jobService: JobService,
@@ -43,6 +49,34 @@ export class TestComponent implements OnInit {
         (error) => {
         })
     })
+  }
+
+  createRange(lastPage: number): any {
+    let paginationArray: any = [];
+    for (let i = 0; i < lastPage; i++) {
+      const page = {
+        label: `${i + 1}`,
+        value: i + 1,
+      };
+      paginationArray.push(page);
+    }
+    return paginationArray;
+  }
+
+  getStartIndex(currentPage: number, lastPage: number): string {
+    let firstIndex = 1;
+    if ((currentPage !== lastPage) || (currentPage > 0 && lastPage > 0)) {
+      firstIndex = (Number(this.noOfRows) * (Number(currentPage) - 1) + 1);
+    }
+    return firstIndex.toString();
+  }
+
+  getLastIndex(currentPage: number, lastPage: number): string {
+    let lastIndex = this.testModel.recentJobs ? this.testModel.recentJobs.length : null;
+    if ((currentPage !== lastPage)) {
+      lastIndex = (Number(this.noOfRows) * (Number(currentPage)));
+    }
+    return lastIndex.toString();
   }
 
   keJobList() {

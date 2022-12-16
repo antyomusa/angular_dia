@@ -8,6 +8,8 @@ import { ModalPersonalInformationComponent } from 'src/app/shared/component/moda
 import { ProfileModel } from './model/profile.model';
 import { ProfileService } from 'src/app/services/profile/profile.service';
 import { ModalEditSkillsComponent } from 'src/app/shared/component/modal/modal-edit-skills/modal-edit-skills.component';
+import { ModalEditSalaryComponent } from 'src/app/shared/component/modal/modal-edit-salary/modal-edit-salary.component';
+import { ModalAddSalaryComponent } from 'src/app/shared/component/modal/modal-add-salary/modal-add-salary.component';
 
 @Component({
   selector: 'app-profile',
@@ -19,7 +21,10 @@ export class ProfileComponent implements OnInit {
   profileModel = new ProfileModel();
 
   profile: any = {};
+  degree: any = {};
   id: any;
+  userData: any = {};
+  isUploaded: unknown;
 
   constructor(
     public readonly loginService: LoginService,
@@ -36,16 +41,26 @@ export class ProfileComponent implements OnInit {
         params = {
           jobseekerId: id
         }
-      console.log(data.params)
       this.profileService.getUserProfile(params).subscribe(
         (response: any) => {
           this.profileModel.userProfile = response.data;
           this.profile = this.profileModel.userProfile;
           this.profileModel.skills = response.data.skills;
           this.profileModel.salary = response.data.jobseekerSalary;
+          this.profileModel.education = response.data.jobseekerEducation;
+          this.profileModel.experience = response.data.jobseekerExperience;
         },
         (error) => {
         })
+      this.profileService.getAllDegree().subscribe(
+        (response) => {
+          this.profileModel.allDegree = response.data;
+          this.degree = this.profileModel.allDegree;
+        },
+        (error) => {
+
+        }
+      )
     })
   }
 
@@ -73,7 +88,51 @@ export class ProfileComponent implements OnInit {
       ModalEditSkillsComponent, { size: 'lg' }
     );
     modal.componentInstance.data = this.profileModel.userProfile;
+    // modal.componentInstance.data = this.profileModel.editSkillModelForm.controls['skillId'];
+    modal.componentInstance.onEdit = () => { this.onEdit() }
   }
+
+  onEdit() {
+    this.profileModel.editSkillModelForm.controls['jobseekerId'].setValue(this.userData.jobseekerId);
+    this.profileService.editSkill(this.profileModel.editSkillModelForm.value).subscribe(
+      (event: any) => {
+        if (typeof (event) === 'string') {
+          this.isUploaded = true;
+        }
+      }
+    );
+  }
+
+  openEditSalary() {
+    const modal = this.modalService.open(
+      ModalAddSalaryComponent, { size: 'lg' }
+    );
+  }
+
+
+  // openEditSalary() {
+  //   const modal = this.modalService.open(
+  //     ModalEditSalaryComponent, { size: 'lg' }
+  //   );
+  //   modal.componentInstance.data = this.profileModel.userProfile;
+  //   modal.componentInstance.file = this.profileModel.addSalaryModelForm.controls['currentCurrency'];
+  //   modal.componentInstance.file = this.profileModel.addSalaryModelForm.controls['expectedCurrency'];
+  //   modal.componentInstance.file = this.profileModel.addSalaryModelForm.controls['currentSalary'];
+  //   modal.componentInstance.file = this.profileModel.addSalaryModelForm.controls['expectedMinimum'];
+  //   modal.componentInstance.file = this.profileModel.addSalaryModelForm.controls['expectedMaximum'];
+  //   modal.componentInstance.onUpload = () => { this.onUpload() }
+  // }
+
+  // onUpload() {
+  //   this.profileModel.addSalaryModelForm.controls['jobseekerId'].setValue(this.userData.jobseekerId);
+  //   this.profileService.addSalary(this.profileModel.addSalaryModelForm.value).subscribe(
+  //     (event: any) => {
+  //       if (typeof (event) === 'object') {
+  //         this.isUploaded = true;
+  //       }
+  //     }
+  //   );
+  // }
 
 
 }

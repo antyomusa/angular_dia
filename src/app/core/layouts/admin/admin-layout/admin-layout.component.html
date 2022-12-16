@@ -66,7 +66,8 @@
                         src="assets/profile.svg" alt="">
                     <p>Profile</p>
                 </a>
-                <a href=""><img src="assets/bag.svg" alt="">
+                <a [routerLinkActive]="'active'" routerLink="applied-job/{{userData.jobseekerId}}"><img
+                        src="assets/bag.svg" alt="">
                     <p>Applied Jobs</p>
                 </a>
                 <a href="" hidden><img src="assets/save.svg" alt="">

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { LoginService } from 'src/app/services/login/login.service';
@@ -11,7 +10,6 @@ import { LoginModel } from './model/login.model';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
 
   hide = true;
   public showPassword: boolean = false;

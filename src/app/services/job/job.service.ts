@@ -23,6 +23,12 @@ export class JobService {
     return this.http.get('http://54.251.83.205:9091/api/v1/jobs/detail', { params: params });
   }
 
+  public getAppliedJob(body: any): Observable<unknown> {
+    const params = new HttpParams()
+      .set('jobseekerId', body.jobseekerId)
+    return this.http.get('http://54.251.83.205:9091/api/v1/application/job/applied', { params: params });
+  }
+
   public postCV(body: any): Observable<any> {
     const params = new HttpParams()
       .set('jobseekerId', body.jobseekerId)

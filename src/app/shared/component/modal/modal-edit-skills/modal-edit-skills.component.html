@@ -5,11 +5,12 @@
             <button (click)="activeModal.dismiss('Cross click')" type="button" class="btn-close" data-bs-dismiss="modal"
                 aria-label="Close"></button>
         </div>
+        <form action=""></form>
         <div class="modal-body text-center">
             <div class="row">
                 <label class="form-label">Top Skills</label>
                 <ng-multiselect-dropdown [placeholder]="'Select your Skills'" [settings]="dropdownSettings"
-                    [data]="editSkillsModel.allSkills" [(ngModel)]="editSkillsModel.skills"
+                    [data]="editSkillsModel.allSkills" [(ngModel)]="editSkillsModel.userProfile"
                     (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)" (enableCheckAll)="false">
                 </ng-multiselect-dropdown>
             </div>
@@ -18,7 +19,7 @@
             <button (click)="activeModal.dismiss('Cross click')" class="btn btn-outline-primary rounded-pill px-5">
                 Cancel
             </button>
-            <button class="btn btn-primary rounded-pill px-5">
+            <button (click)="upload()" class="btn btn-primary rounded-pill px-5">
                 Submit
             </button>
         </div>

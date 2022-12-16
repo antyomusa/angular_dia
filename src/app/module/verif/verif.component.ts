@@ -47,12 +47,6 @@ export class VerifComponent implements OnInit {
     )
   }
 
-  openModalVerify() {
-    const modal = this.modalService.open(
-      ModalVerifyComponent, { size: 'md' }
-    )
-  }
-
   sendingEmail() {
     this.router.navigate(['verify-again'])
   }

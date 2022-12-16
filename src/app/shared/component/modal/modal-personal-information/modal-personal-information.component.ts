@@ -13,9 +13,9 @@ import { ModalPersonalModel } from './model/modal-personal-information.model';
   styleUrls: ['./modal-personal-information.component.scss']
 })
 export class ModalPersonalInformationComponent implements OnInit {
-  static forRoot(): any[] | import("@angular/core").Type<any> | import("@angular/core").ModuleWithProviders<{}> {
-    throw new Error('Method not implemented.');
-  }
+  // static forRoot(): any[] | import("@angular/core").Type<any> | import("@angular/core").ModuleWithProviders<{}> {
+  //   throw new Error('Method not implemented.');
+  // }
 
   @Input() data: any;
 

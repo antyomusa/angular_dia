@@ -1,0 +1,94 @@
+<section class="find-jobs">
+    <div class="contain container-fluid">
+        <div class="py-3">
+            <h4 class="fw-bold">Applied Jobs</h4>
+            <div class="col-md-2">
+                <select class="form-select form-select-md mb-3 rounded-pill mt-4" aria-label=".form-select-lg example"
+                    [(ngModel)]="filteredString">
+                    <option value="sent">Sent </option>
+                    <option value="accepted">Accepted</option>
+                    <option value="rejected">Rejected</option>
+                </select>
+            </div>
+        </div>
+        <div class="section-white" *ngFor="let job of appliedJobModel.appliedJobs | filter: filteredString">
+            <div class="card border-0">
+                <div class="section-title">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="row">
+                                <div class="col-md-1 photo-border">
+                                    <img src="assets/ideaco.png" alt="">
+                                </div>
+                                <div class="col-md-7">
+                                    <h5><a routerLink="detail/{{job.jobId}}" class="text-dark"> {{job.jobName}}
+                                        </a>
+                                    </h5>
+                                    <a href="" class="recruiter-company">
+                                        {{ job.recruiterCompany }}
+                                    </a>
+                                    <p class="text-secondary pt-2">{{ job.jobAddress }}</p>
+                                    <span class="text-secondary">{{ job.createdAt }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-button">
+                            <button type="button" class="btn px-5"
+                                [ngStyle]="{'color': (job.applicationStatus === 'sent') ? '#006EFF' : (job.applicationStatus === 'accepted') ? 'green' : ''}">{{job.applicationStatus}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="appliedJobModel.appliedJobs.length===0" class="text-center mt-5">
+            <h2 class="fw-bold">No Applied Jobs</h2>
+            <h3 class="mt-3 mb-5">you haven't applied any job yet</h3>
+        </div>
+        <!-- <pagination-template #p="paginationApi" (pageChange)="filteredString = $event">
+            <div class="row no-gutters">
+                <div class="col-md-7 ms-auto">
+                    <div class="custom-pagination d-flex">
+                        <div class="page-button me-auto">
+                            <button type="button" class="btn btn-primary rounded-pill me-1" (click)="p.previous()"
+                                *ngIf="p.isFirstPage()===false">Previous Page
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary rounded-pill me-1"
+                                (click)="p.previous()" *ngIf="p.isFirstPage()===true"
+                                [disabled]="p.isFirstPage()===true">Previous Page
+                            </button>
+                            <button type="button" class="btn btn-primary rounded-pill me-1" (click)="p.next()"
+                                *ngIf="p.isLastPage()===false">Next Page
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary rounded-pill me-1" (click)="p.next()"
+                                *ngIf="p.isLastPage()===true" [disabled]="p.isLastPage()===true">Next Page
+                            </button>
+                        </div>
+                        <div class="page-number">
+                            <span>
+                                <select name="pageToggle" id="pageToggle" [(ngModel)]="page"
+                                    class="form-select form-select-sm">
+                                    <ng-container *ngFor="let item of createRange(p.getLastPage())">
+                                        <option [ngValue]="item.value" (change)="page=item.value">
+                                            {{item.value}}
+                                        </option>
+                                    </ng-container>
+                                </select>
+                            </span>
+                        </div>
+                        <div class="pagination-icon pagination-previous ps-2 pe-1">
+                            <span *ngIf="!p.isFirstPage()" (click)="p.previous()">
+                                <img src="../../../../assets/previous.png" alt="">
+                            </span>
+                        </div>
+                        <div class="pagination-icon pagination-next ps-1 pe-2">
+                            <span *ngIf="!p.isLastPage()" (click)="p.next()">
+                                <img src="../../../../assets/next.png" alt="">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </pagination-template> -->
+
+    </div>
+</section>

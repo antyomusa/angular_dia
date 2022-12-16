@@ -32,6 +32,7 @@ export class ForgotPasswordComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
   }
 
   onSendingEmail(): void {

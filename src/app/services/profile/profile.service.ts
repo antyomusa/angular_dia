@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -25,4 +25,32 @@ export class ProfileService {
     const url = 'http://54.251.83.205:9091/api/v1/jobseeker/get-skill';
     return this.http.get(url);
   }
+
+  public getAllUniversity(): Observable<any> {
+    const url = 'http://54.251.83.205:9091/api/v1/jobseeker/education/get-university';
+    return this.http.get(url);
+  }
+
+  public getAllDegree(): Observable<any> {
+    const url = 'http://54.251.83.205:9091/api/v1/jobseeker/education/get-degree';
+    return this.http.get(url);
+  }
+
+  public addSalary(body: any): Observable<any> {
+    const params = new HttpParams()
+      .set('jobseekerId', body.jobseekerId)
+      .set('currentCurrency', body.currentCurrency)
+      .set('expectedCurrency', body.expectedCurrency)
+      .set('currentSalary', body.currentSalary)
+      .set('expectedMinimum', body.expectedMinimum)
+      .set('expectedMaximum', body.expectedMaximum);
+
+    return this.http.post('http://54.251.83.205:9091/api/v1/jobseeker/detail/salary', params);
+  }
+
+  public editSkill(body: any): Observable<any> {
+    return this.http.post('http://54.251.83.205:9091/api/v1/jobseeker/add/skill', body);
+  }
+
+
 }

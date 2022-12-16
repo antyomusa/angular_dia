@@ -14,7 +14,9 @@ $biru_card : #ECF3FF;
   margin-top: 20px;
 
   img {
+    margin-left: 10px;
     height: 500px;
+    width: 500px;
   }
 
   @media (max-width: 767.98px) {
@@ -65,8 +67,9 @@ $biru_card : #ECF3FF;
 }
 
 .text-s {
-  margin-top: 5px;
+  position: relative;
   margin-left: 10px;
+  bottom: 20px;
 }
 
 @media (min-width: 500px) {
@@ -119,6 +122,11 @@ $biru_card : #ECF3FF;
   margin-bottom: 15px !important;
 }
 
+.position {
+  position: relative;
+  bottom: 20px;
+}
+
 .hw {
   margin-left: 12px;
 }
@@ -130,6 +138,12 @@ $biru_card : #ECF3FF;
 .form-group {
   border-radius: 8px;
   margin: 12px;
+}
+
+.form-group-2 {
+  position: relative;
+  margin-left: 12px;
+  bottom: 50px;
 }
 
 .font-style-btn {
@@ -197,4 +211,33 @@ $biru_card : #ECF3FF;
   font-size: 0.8rem;
   border-radius: 8px;
   height: 40px;
+  width: 500px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.icon-eye {
+  position: relative;
+  left: 450px;
+  bottom: 50px;
+  cursor: pointer;
+}
+
+.icon-email {
+  position: relative;
+  left: 450px;
+  bottom: 30px;
+}
+
+.position2 {
+  position: relative;
+  right: 12px;
+}
+
+.text-position {
+  position: relative;
+  bottom: 15px;
 }
