@@ -158,24 +158,27 @@
                 </section>
                 <section class="salary section-white">
                     <div class="d-flex">
-                        <h4 class="me-auto">Salary</h4>
+                        <h4 class="me-auto">Salary </h4>
                         <button class="btn btn-sm btn-primary rounded-pill px-4 btn-edit"
                             (click)=" openEditSalary()">Edit </button>
                     </div>
                     <div class="row user-job-detail mt-4">
                         <div class="col-md-2">
-                            <h6>Current Salary</h6>
-                            <p>{{profile.jobseekerSalary?.currentCurrency}} {{profile.jobseekerSalary?.currentSalary}}
+                            <h6> Current Salary </h6>
+                            <p><span [innerHtml]="profile.jobseekerSalary?.currentCurrency"></span>
+                                {{profile.jobseekerSalary?.currentSalary}}
                             </p>
                             <p *ngIf="profile.jobseekerSalary===null">not filled yet</p>
                         </div>
                         <div class="col-md-6">
                             <h6>Expected Salary</h6>
-                            <p *ngIf="profile.jobseekerSalary!=null">{{profile.jobseekerSalary?.expectedCurrency}}
+                            <p *ngIf="profile.jobseekerSalary!=null"><span
+                                    [innerHtml]="profile.jobseekerSalary?.expectedCurrency"></span>
                                 {{profile.jobseekerSalary?.expectedMinimum}}
                                 -
-                                {{profile.jobseekerSalary?.expectedCurrency}}
-                                {{profile.jobseekerSalary?.expectedMaximum}} (nett)</p>
+                                <span [innerHtml]="profile.jobseekerSalary?.expectedCurrency"></span>
+                                {{profile.jobseekerSalary?.expectedMaximum}} (nett)
+                            </p>
                             <p *ngIf="profile.jobseekerSalary===null">not filled yet</p>
                         </div>
                     </div>

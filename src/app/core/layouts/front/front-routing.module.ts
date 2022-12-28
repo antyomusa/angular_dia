@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from 'src/app/auth.guard';
+import { LoginGuard } from 'src/app/login.guard';
 import { FrontLayoutComponent } from './front-layout/front-layout.component';
 
 const routes: Routes = [
@@ -14,6 +16,7 @@ const routes: Routes = [
       },
       {
         path: 'login',
+        canActivate: [LoginGuard],
         loadChildren: () => import('../../../module/front/login/login.module').then((x) => x.LoginModule)
       },
       {

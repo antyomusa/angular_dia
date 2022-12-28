@@ -31,6 +31,11 @@ export class ProfileService {
     return this.http.get(url);
   }
 
+  public getAllCurrency(): Observable<any> {
+    const url = 'http://54.251.83.205:9091/api/v1/jobseeker/education/get-currency';
+    return this.http.get(url);
+  }
+
   public getAllDegree(): Observable<any> {
     const url = 'http://54.251.83.205:9091/api/v1/jobseeker/education/get-degree';
     return this.http.get(url);

@@ -2,6 +2,7 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 
 export class AddSalaryModel {
     joobseekerId: any;
+    allCurrency: any = [];
     formGroupEditSalary = new FormGroup({
         currentCurrency: new FormControl(""),
         expectedCurrency: new FormControl(""),

@@ -5,6 +5,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ProfileModel } from 'src/app/module/admin/profile/model/profile.model';
 import { AddSalaryService } from 'src/app/services/add-salary/add-salary.service';
 import { LoginService } from 'src/app/services/login/login.service';
+import { ProfileService } from 'src/app/services/profile/profile.service';
 import { AddSalaryModel } from './model/add-salary.model';
 
 @Component({
@@ -23,6 +24,7 @@ export class ModalAddSalaryComponent implements OnInit {
     public activeModal: NgbActiveModal,
     private readonly salaryService: AddSalaryService,
     private readonly loginService: LoginService,
+    public readonly profileService: ProfileService,
     private activatedRoute: ActivatedRoute,
     private currencyPipe: CurrencyPipe
   ) { }
@@ -49,6 +51,15 @@ export class ModalAddSalaryComponent implements OnInit {
         }, { emitEvent: false });
       }
     });
+    this.profileService.getAllCurrency().subscribe(
+      (response) => {
+        this.salaryModel.allCurrency = response.data;
+        console.log('tes currency');
+        console.log(response.data);
+      },
+      (error) => {
+      }
+    );
   }
 
   editSalary(): void {
@@ -57,7 +68,6 @@ export class ModalAddSalaryComponent implements OnInit {
         params = {
           jobseekerId: id
         }
-      console.log(data.params)
       this.salaryService.editSalary(params).subscribe(
         (response: any) => {
           this.salaryService.editSalary(response.data)

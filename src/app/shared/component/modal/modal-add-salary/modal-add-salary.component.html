@@ -1,7 +1,7 @@
 <div class="modal-dialog">
     <div class="modal-content border-0">
         <div class="modal-header border-0">
-            <h5 class="modal-title" id="exampleModalLabel">Edit Salary</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Edit Salary &#1423;</h5>
             <button (click)="activeModal.dismiss('Cross click')" type="button" class="btn-close" data-bs-dismiss="modal"
                 aria-label="Close"></button>
         </div>
@@ -10,12 +10,10 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="mb-3">
-                            <label for="IDR" class="form-label">Current Monthly Salary</label>
+                            <label for="IDR" class="form-label">Current Monthly Salary &#36;</label>
                             <select formControlName="currentCurrency" id="Select" class="form-select">
-                                <option>IDR - Rp</option>
-                                <option>PHP - P</option>
-                                <option>Poundsterling - £</option>
-                                <option>USD - $</option>
+                                <option value="{{item.currencySymbol}}" *ngFor="let item of salaryModel.allCurrency">
+                                    {{item.currencyCode}} - {{item.currencySymbol}}</option>
                             </select>
                         </div>
                     </div>

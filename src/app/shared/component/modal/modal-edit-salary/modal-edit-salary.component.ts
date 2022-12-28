@@ -44,6 +44,8 @@ export class ModalEditSalaryComponent implements OnInit {
         this.profile = this.salaryModel.userProfile;
         this.salaryModel.salary = response.data.jobseekerSalary;
       })
+
+
   }
 
   upload() {
